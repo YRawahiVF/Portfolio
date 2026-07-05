@@ -1,165 +1,15 @@
 [
   {
-    "id": 12,
-    "title": "QueueWing",
-    "category": "web",
-    "image": "assets/images/portfolio/queuewing.svg",
-    "description": "Real-time queue management with QR tickets, live displays, and multi-clerk support — turning waiting lines into trackable flows.",
-    "tags": ["SaaS", "Web", "Real-time"],
-    "url": "https://queuewing.com/",
-    "isRedacted": false,
-    "details": {
-      "client": "Astral Hive Solutions",
-      "completed": "Live"
-    }
-  },
-  {
-    "id": 13,
-    "title": "LifeBinder",
-    "category": "web",
-    "image": "assets/images/portfolio/lifebinder.svg",
-    "description": "A single place for tasks, agenda, a knowledge vault, workspaces, and notifications — everything that runs your day, together.",
-    "tags": ["SaaS", "Productivity"],
-    "url": "https://lifebinder.astralhive.net/",
-    "isRedacted": false,
-    "details": {
-      "client": "Astral Hive Solutions",
-      "completed": "Live"
-    }
-  },
-  {
-    "id": 3,
-    "title": "AstralCalc",
-    "category": "mobile",
-    "image": "assets/images/portfolio/astralcalc.svg",
-    "description": "Multi-purpose calculator for VAT, loans, interest, and unit conversions. Published on Google Play.",
-    "tags": ["Android", "Java"],
-    "url": "https://play.google.com/store/apps/details?id=com.ahs.astralcalc",
-    "isRedacted": false,
-    "details": {
-      "client": "Astral Hive Solutions",
-      "completed": "Oct 2021"
-    }
-  },
-  {
-    "id": 10,
-    "title": "GymLog",
-    "category": "mobile",
-    "image": "assets/images/portfolio/gymlog.svg",
-    "description": "Workout tracker with exercise logging, muscle-group targeting, and progress statistics. Published on Google Play.",
-    "tags": ["Android", "SQLite"],
-    "url": "https://play.google.com/store/apps/details?id=com.ahs.gymlog",
-    "isRedacted": false,
-    "details": {
-      "client": "Astral Hive Solutions",
-      "completed": "Dec 2024"
-    }
-  },
-  {
-    "id": 11,
-    "title": "MazadCars",
-    "category": "web",
-    "image": "assets/images/portfolio/mazadcars.svg",
-    "description": "Web platform for running car auctions and coordinating the logistics around them.",
-    "tags": ["Web App", "Auction"],
-    "url": "https://mazadcars.net/",
-    "isRedacted": false,
-    "details": {
-      "client": "al3badi_cars",
-      "completed": "2024"
-    }
-  },
-  {
-    "id": 14,
-    "title": "BumpSync",
-    "category": "mobile",
-    "image": "assets/images/portfolio/bumpsync.svg",
-    "description": "A pregnancy companion app supporting expecting parents through every stage of the journey — coming soon to Google Play.",
-    "tags": ["Android", "Health"],
-    "url": "https://play.google.com/store/apps/details?id=com.ahs.bumpsync",
-    "isRedacted": false,
-    "details": {
-      "client": "Astral Hive Solutions",
-      "completed": "Coming soon"
-    }
-  },
-  {
-    "id": 15,
-    "title": "LibraPix",
-    "category": "desktop",
-    "image": "assets/images/portfolio/librapix.svg",
-    "description": "Cross-platform desktop app for browsing local screenshots and recordings without ever modifying the originals. Built in Rust.",
-    "tags": ["Desktop", "Rust", "Open Source"],
-    "url": "https://github.com/asad-albadi/LibraPix",
-    "isRedacted": false,
-    "details": {
-      "client": "Open Source",
-      "completed": "Astral Hive"
-    }
-  },
-  {
-    "id": 16,
-    "title": "streamdock-n3",
-    "category": "desktop",
-    "image": "assets/images/portfolio/streamdock.svg",
-    "description": "A Linux controller and diagnostics tool for the Mirabox Stream Dock N3 macro pad. Built in Python.",
-    "tags": ["Linux", "Python", "Open Source"],
-    "url": "https://github.com/asad-albadi/streamdock-n3",
-    "isRedacted": false,
-    "details": {
-      "client": "Open Source",
-      "completed": "Astral Hive"
-    }
-  },
-  {
-    "id": 4,
-    "title": "Point-of-Sale System",
-    "category": "desktop",
-    "image": "assets/images/portfolio/pos-system.svg",
-    "description": "Desktop POS handling transactions and inventory for a retail business, with a short demo on YouTube.",
-    "tags": ["Java", "PostgreSQL", "Desktop"],
-    "url": "https://youtu.be/JgziDgPAzi4",
-    "isRedacted": false,
-    "details": {
-      "client": "Business Client",
-      "completed": "Dec 2021"
-    }
-  },
-  {
     "id": 1,
-    "title": "Household Budget",
-    "category": "mobile",
-    "image": "assets/images/portfolio/household-budget.svg",
-    "description": "Budgeting app that parses bank emails via a self-hosted Python API and stores them in MongoDB.",
-    "tags": ["Flutter", "MongoDB", "Python"],
-    "url": "#",
-    "isRedacted": false,
-    "details": {
-      "client": "Personal Project",
-      "completed": "Mar 2023"
-    }
-  },
-  {
-    "id": 5,
-    "title": "Automation Engines",
-    "category": "automation",
-    "image": "assets/images/portfolio/automation-engines.svg",
-    "description": "Scripts and frameworks that automate recurring IT operations and cut manual workload across the org.",
-    "tags": ["Python", "PowerShell", "Bash"],
-    "url": "#",
-    "isRedacted": false,
-    "details": {
-      "client": "Vodafone Oman",
-      "completed": "Ongoing"
-    }
-  },
-  {
-    "id": 19,
-    "title": "Single Sign-On",
+    "title": "Product Management Portal (PLM)",
     "category": "web",
-    "image": "assets/images/portfolio/sso.svg",
-    "description": "Centralized single sign-on giving users one secure identity with seamless access across multiple applications.",
-    "tags": ["SSO", "Identity"],
+    "image": "assets/images/portfolio/automation-engines.svg",
+    "description": "Designed and developed a product management portal to support product lifecycle management workflows.",
+    "tags": [
+      "Product Management",
+      "Workflow",
+      "Web App"
+    ],
     "url": "#",
     "isRedacted": false,
     "details": {
@@ -168,73 +18,21 @@
     }
   },
   {
-    "id": 9,
-    "title": "Unified Operations Dashboard",
-    "category": "dashboard",
-    "image": "assets/images/portfolio/oman-dashboard.svg",
-    "description": "Internal dashboard consolidating real-time tower, roaming, campaign, and cloud-platform monitoring.",
-    "tags": ["Dashboard", "Monitoring"],
-    "url": "#",
-    "isRedacted": true,
-    "details": {
-      "client": "Vodafone Oman",
-      "completed": "Q1 2025"
-    }
-  },
-  {
-    "id": 8,
-    "title": "Customer Engagement Platform",
-    "category": "automation",
-    "image": "assets/images/portfolio/customer-engagement.svg",
-    "description": "Platform for marketing teams to run targeted SMS and push campaigns, with built-in gamification.",
-    "tags": ["CVM", "Automation"],
-    "url": "#",
-    "isRedacted": true,
-    "details": {
-      "client": "Vodafone Oman",
-      "completed": "Q1 2024"
-    }
-  },
-  {
-    "id": 7,
-    "title": "Enterprise Workflow Tool",
+    "id": 2,
+    "title": "Formula Room",
     "category": "web",
-    "image": "assets/images/portfolio/callcenter.svg",
-    "description": "Web app that streamlines customer-support requests, improving resolution times and cutting cost.",
-    "tags": ["Web App", "Internal Tool"],
+    "image": "assets/images/portfolio/oman-dashboard.svg",
+    "description": "Designed and developed a website for Formula Room, a social media platform providing Formula 1 news, statistics, and analysis.",
+    "tags": [
+      "Formula 1",
+      "Web Design",
+      "Data"
+    ],
     "url": "#",
-    "isRedacted": true,
+    "isRedacted": false,
     "details": {
-      "client": "Vodafone Oman",
-      "completed": "Q4 2022"
-    }
-  },
-  {
-    "id": 17,
-    "title": "USSD Self-Service",
-    "category": "telecom",
-    "image": "assets/images/portfolio/ussd.svg",
-    "description": "Interactive USSD menus delivering real-time, session-based self-service flows to subscribers.",
-    "tags": ["USSD", "Telecom"],
-    "url": "#",
-    "isRedacted": true,
-    "details": {
-      "client": "Vodafone Oman",
-      "completed": "Jul 2025"
-    }
-  },
-  {
-    "id": 18,
-    "title": "Two-Way SMS Gateway",
-    "category": "automation",
-    "image": "assets/images/portfolio/smpp.svg",
-    "description": "SMPP-based gateway that receives inbound customer messages and responds in real time, built for the marketing team.",
-    "tags": ["SMPP", "SMS"],
-    "url": "#",
-    "isRedacted": true,
-    "details": {
-      "client": "Vodafone Oman",
-      "completed": "Dec 2024"
+      "client": "Personal Project",
+      "completed": "Ongoing"
     }
   }
 ]

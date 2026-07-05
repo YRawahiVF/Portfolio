@@ -1,36 +1,36 @@
 {
   "title": "About Me",
-  "description": "A Software Engineer who works across the full breadth of modern software — from SaaS products and large, interconnected systems to mobile and desktop apps. Strong background in automation and IT infrastructure, with a track record of designing solutions that scale and keep running with minimal hand-holding. Currently an Application Development Senior Specialist at Vodafone Oman, where I turn complex business problems into reliable, well-engineered systems.",
+  "description": "A detail-oriented Jira Analyst with a background in Electronics and Telecommunication, experienced in IT operations and asset management. A fast learner and problem solver with strong multitasking and time management skills. I also manage Formula Room, a social media platform dedicated to Formula 1 news and analysis.",
   "services": [
     {
-      "icon": "fas fa-cloud",
-      "title": "SaaS Platforms",
-      "description": "Designing and shipping multi-tenant SaaS products end-to-end — data model, auth, billing, and deployment."
-    },
-    {
-      "icon": "fas fa-diagram-project",
-      "title": "Systems & Integration",
-      "description": "Architecting large, interconnected systems — APIs, queues, and services that stay reliable as they scale."
-    },
-    {
-      "icon": "fas fa-mobile-screen-button",
-      "title": "App Development",
-      "description": "Cross-platform apps with Flutter, native Android, and desktop builds — shipped to real users."
+      "icon": "fab fa-jira",
+      "title": "Jira Administration",
+      "description": "Managing Jira workflows, configurations, and day-to-day platform operations for effective team delivery."
     },
     {
       "icon": "fas fa-gears",
-      "title": "Automation",
-      "description": "Automating operations and pipelines with Python, PowerShell, and Bash to remove repetitive manual work."
+      "title": "Workflow Automation",
+      "description": "Building automations that streamline processes, reduce repetitive work, and improve operational efficiency."
+    },
+    {
+      "icon": "fas fa-diagram-project",
+      "title": "Product Development",
+      "description": "Designing and developing practical products and internal tools, including product lifecycle management solutions."
     },
     {
       "icon": "fas fa-server",
-      "title": "IT Infrastructure",
-      "description": "Servers, virtualization, containers, and self-hosting across Linux, Windows, and macOS."
+      "title": "IT Operations",
+      "description": "Supporting IT operations with hands-on experience in systems, workflows, and operational problem-solving."
     },
     {
-      "icon": "fas fa-vial-circle-check",
-      "title": "Test Automation",
-      "description": "Automated testing for apps, web, and APIs using Appium, Selenium, and JMeter."
+      "icon": "fas fa-boxes-stacked",
+      "title": "Asset Management",
+      "description": "Organizing and managing technology assets with an emphasis on accuracy, visibility, and reliable processes."
+    },
+    {
+      "icon": "fas fa-pen-ruler",
+      "title": "Graphic Design",
+      "description": "Creating visual content and digital experiences using tools such as Photoshop, Canva, and AutoCAD."
     }
   ]
 }

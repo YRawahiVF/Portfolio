@@ -3,34 +3,28 @@
   "sectionIcon": "fas fa-award",
   "awards": [
     {
-      "title": "Game Changer Award",
+      "title": "Game Changer 2025",
       "organization": "Vodafone Oman",
-      "date": "May 2026",
-      "description": "Recognized for designing and delivering a personalized, real-time offer recommendation engine on a high-traffic self-service channel, driving a substantial uplift in customer conversion and revenue performance."
+      "date": "2025",
+      "description": "Recognized for independently developing products that delivered significant cost savings."
     },
     {
-      "title": "Game Changer Award",
-      "organization": "Vodafone Oman",
-      "date": "June 2025",
-      "description": "Awarded for developing an Android mobile application that enables retailers and sales teams to instantly view and showcase Vodafone’s 5G network coverage, improving transparency, sales efficiency, and customer engagement."
+      "title": "Best Project Award - Drowning Bracelet Alert",
+      "organization": "University of Technology and Applied Sciences",
+      "date": "2021 - 2022",
+      "description": "Received the Best Project Award for the Drowning Bracelet Alert project."
     },
     {
-      "title": "Game Changer Award",
-      "organization": "Vodafone Oman",
-      "date": "July 2024",
-      "description": "Recognized for automating the IR21 audit process for the Wholesale and Roaming teams, drastically reducing manual effort, improving accuracy, and accelerating compliance workflows."
+      "title": "Al Namaa Entrepreneurial Campus",
+      "organization": "University of Technology and Applied Sciences",
+      "date": "2016",
+      "description": "Participated in the Al Namaa Entrepreneurial Campus program."
     },
     {
-      "title": "Game Changer Award",
-      "organization": "Vodafone Oman",
-      "date": "May 2024",
-      "description": "Awarded for delivering impactful automation and system improvements that enhanced key operations within the Postpaid and Finance departments, contributing to increased efficiency and business performance."
-    },
-    {
-      "title": "Chairman Champion Team Award",
-      "organization": "Vodafone Oman",
-      "date": "March 2023",
-      "description": "Recognized for exceptional performance and contribution to team objectives, demonstrating leadership and innovation in implementing IT automation solutions."
+      "title": "Handwriting Competition",
+      "organization": "Ahmed Bin Majid Private School",
+      "date": "September 2014",
+      "description": "Recognized through the school's handwriting competition."
     }
   ]
 }

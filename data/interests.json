@@ -3,72 +3,54 @@
   "sectionIcon": "fas fa-heart",
   "coreInterests": [
     {
-      "title": "Coding",
-      "icon": "fas fa-code",
-      "description": "Deep diving into backend systems, building robust automation scripts, and designing clean, maintainable software architecture.",
-      "links": [ 
-        { "url": "https://github.com/asad-albadi?tab=repositories", "icon": "fab fa-github" }
-      ]
-    },
-    {
-      "title": "Gaming",
-      "icon": "fas fa-gamepad",
-      "description": "Exploring immersive game mechanics and compelling narratives. Occasionally dabbling in indie game development and engine tinkering.",
-      "links": [
-      ]
-    },
-    {
-      "title": "Making & Tinkering",
-      "icon": "fas fa-screwdriver-wrench", 
-      "description": "Bringing ideas to life through 3D printing, electronics projects, and hands-on problem-solving. Love the challenge of physical builds.",
-      "links": [
-        { "url": "https://www.instagram.com/astralhivemakers/", "icon": "fas fa-camera" }
-      ]
-    }
-  ],
-  "fusionTitle": "Where Worlds Collide",
-  "fusionPassions": [
-    {
-      "title": "GameDev Alchemy",
-      "icon": "fas fa-flask-vial",
-      "description": "(Coding + Gaming) Prototyping unique game ideas, experimenting with game engines, and exploring the technical side of game creation.",
+      "title": "Motorsport",
+      "icon": "fas fa-flag-checkered",
+      "description": "Following Formula 1 closely and exploring the stories, strategy, performance, and statistics behind motorsport.",
       "links": []
     },
     {
-      "title": "Tech Tinkerer",
-      "icon": "fas fa-microchip",
-      "description": "(Coding + Making) Building practical gadgets with microcontrollers (like ESP32/Raspberry Pi), automating home tasks, and bridging software with hardware.",
-      "links": [
-          { "url": "https://www.instagram.com/astralhivemakers/", "icon": "fas fa-camera" }
-      ]
+      "title": "Cycling",
+      "icon": "fas fa-bicycle",
+      "description": "Enjoying cycling as a way to stay active, explore, and recharge outside of work.",
+      "links": []
     },
     {
-      "title": "Creative Engineering",
-      "icon": "fas fa-drafting-compass",
-      "description": "(Gaming + Making) Designing and 3D printing game-inspired props, functional replicas, or custom components for tech projects.",
-      "links": [
-        { "url": "https://www.instagram.com/astralhivemakers/", "icon": "fas fa-camera" }
-      ] 
+      "title": "Graphic Design",
+      "icon": "fas fa-pen-nib",
+      "description": "Creating clear, engaging visuals and experimenting with digital design tools and visual communication.",
+      "links": []
     }
   ],
-  "homelabTitle": "The Digital Forge – My Homelab",
+  "fusionTitle": "Where My Interests Meet",
+  "fusionPassions": [
+    {
+      "title": "Formula Room",
+      "icon": "fas fa-chart-line",
+      "description": "Combining motorsport, data, and design to share Formula 1 news, statistics, and analysis.",
+      "links": []
+    },
+    {
+      "title": "Product Design",
+      "icon": "fas fa-object-group",
+      "description": "Bringing workflow analysis and visual design together to create practical, user-focused digital products.",
+      "links": []
+    },
+    {
+      "title": "Smart Systems",
+      "icon": "fas fa-microchip",
+      "description": "Applying an Electronics and Telecommunication background to connected systems and real-world problem-solving.",
+      "links": []
+    }
+  ],
+  "homelabTitle": "Featured Work",
   "homelabDetails": {
-    "links": [
-      { "url": "https://gist.github.com/asad-albadi/35387bd422d295fd79416d42febe7f7d", "icon": "fab fa-github-alt", "label": "Gist" }
-    ],
-    "image": "assets/images/homelab.svg",
-    "description": "My personal homelab is a complete ecosystem for development, automation, self-hosting, and smart-home orchestration. It runs on a mix of Proxmox and Docker hosts, a dedicated TrueNAS storage server, and a Raspberry Pi fleet — all behind an OPNsense firewall on a full 2.5G UniFi network and securely published through Cloudflare Zero Trust. This environment powers my daily development workflows, local AI experiments, automation pipelines, 3D-printing operations, and shared family services.",
-"specs": [
-  "**Compute & Virtualization:** Proxmox on a Ryzen 7 mini-PC alongside dual ThinkCentre M910q Docker hosts",
-  "**Storage:** Custom-built TrueNAS Core server with RAID-backed media and backups",
-  "**Dev & AI:** Mac Mini M4 dedicated to development and local LLM workloads",
-  "**Edge Compute:** Raspberry Pi 4 and Pi 5 fleet for utility and controller nodes",
-  "**Networking:** OPNsense firewall with a full 2.5G UniFi stack — PoE switching and WiFi 7",
-  "**Secure Access:** Cloudflare Zero Trust tunnels — internal services with no inbound ports",
-  "**Self-Hosted Services:** 15+ containerized apps spanning automation, media, and dashboards",
-  "**Home Automation:** Home Assistant with Zigbee and Frigate camera AI",
-  "**3D Printing:** Elegoo Centauri Carbon 2 and Creality Hi with automated monitoring"
-]
-
+    "links": [],
+    "image": "",
+    "description": "My work combines Jira administration, workflow automation, product development, and visual communication to solve practical business problems.",
+    "specs": [
+      "**Product Management Portal:** Designed and developed a portal for product lifecycle management workflows",
+      "**Formula Room:** Created a Formula 1 platform focused on news, statistics, and analysis",
+      "**Workflow Automation:** Built solutions that improved efficiency and delivered significant cost savings"
+    ]
   }
-} 
+}

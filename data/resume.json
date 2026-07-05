@@ -10,148 +10,147 @@
   },
   "experience": [
     {
-      "title": "Application Development Senior Specialist",
-      "company": "Vodafone Oman",
-      "period": "November 2025 - Present",
-      "description": "Designing, developing, and delivering enterprise-grade applications that power Vodafone Oman’s digital services",
+      "title": "Jira Analyst",
+      "company": "Vodafone Oman (IT)",
+      "period": "January 2025 - Present",
+      "description": "Managing workflows and automations, and working as a product designer and developer.",
       "logo": "https://brandlogos.net/wp-content/uploads/2022/08/vodafone-logo_brandlogos.net_yvaun.png"
     },
     {
-      "title": "IT Automation Engineer",
-      "company": "Vodafone Oman",
-      "period": "June 2022 - November 2025",
-      "description": "Implementing automated solutions, resulting in increased efficiency and reduced costs across the organization. Troubleshooting complex IT issues and providing proactive support to improve systems and processes.",
+      "title": "Intern / On-the-Job Training",
+      "company": "Vodafone Oman (IT)",
+      "period": "November 2023 - December 2024",
+      "description": "Completed practical IT training at Vodafone Oman.",
       "logo": "https://brandlogos.net/wp-content/uploads/2022/08/vodafone-logo_brandlogos.net_yvaun.png"
     },
     {
-      "title": "IT Helpdesk Admin",
-      "company": "Mazoon Dairy Company SAOC",
-      "period": "September 2018 - June 2022",
-      "description": "Provided technical support to end-users and various departments, ensuring ICT-related issues were resolved efficiently. Assisted in building and configuring IT infrastructure, and proposed solutions to advance work in the pre-production phase.",
-      "logo": "https://apip.online/wp-content/uploads/2020/06/mazoon-logo-new-1.png"
+      "title": "Intern / On-the-Job Training",
+      "company": "Luxury Home Smart Systems",
+      "period": "December 2022 - February 2023",
+      "description": "Completed practical training in smart-home systems.",
+      "logo": ""
     }
   ],
   "education": [
     {
-      "degree": "BSc in Software Engineering",
-      "institution": "Buraimi University College",
-      "period": "Completed in 2017"
+      "degree": "Bachelor of Technology (B-Tech): Electronics and Telecommunication",
+      "institution": "University of Technology and Applied Sciences, Al-Khuwair, Muscat",
+      "period": "2015 - 2022"
+    },
+    {
+      "degree": "Diploma",
+      "institution": "Ahmed Bin Majid Private School, Al-Khoudh, Muscat",
+      "period": "2002 - 2015"
+    },
+    {
+      "degree": "General English Course",
+      "institution": "Modern Gulf Institute, Al-Hail, Muscat",
+      "period": "August 2010 - September 2010"
     }
   ],
   "certifications": [
-  {
-    "category": "Leadership & Management",
-    "items": [
-      "The Elite Program – LEORON Institute"
-    ]
-  },
-  {
-    "category": "Cloud & Infrastructure",
-    "items": [
-      "System Administration and IT Infrastructure Services – Google",
-      "Designing and Implementing a Data Science Solution on Azure (A) – Microsoft"
-    ]
-  },
-  {
-    "category": "Networking & Security",
-    "items": [
-      "IPv6 Fundamentals, Design and Deployment – Cisco",
-      "CompTIA Network+ (N10-007) Preparation",
-      "Cisco CCNA (200-301) Security, Automation, and Programmability"
-    ]
-  },
-  {
-    "category": "Software Development & Automation",
-    "items": [
-      "Using Python for Automation – LinkedIn",
-      "Machine Learning with Python: Foundations – LinkedIn",
-      "Mobile Testing with Appium – LinkedIn"
-    ]
-  }
-],
-
-  "languages": [
     {
-      "language": "English",
-      "proficiency": "Bilingual Proficiency"
+      "category": "Awards & Recognition",
+      "items": [
+        "Best Project Award - Drowning Bracelet Alert (2021 - 2022)",
+        "Game Changer 2025 - Independently developing products that delivered significant cost savings"
+      ]
     },
+    {
+      "category": "Programs & Competitions",
+      "items": [
+        "Al Namaa Entrepreneurial Campus - University of Technology and Applied Sciences (2016)",
+        "Handwriting Competition - Ahmed Bin Majid Private School (September 2014)"
+      ]
+    }
+  ],
+  "languages": [
     {
       "language": "Arabic",
       "proficiency": "Native Proficiency"
     },
     {
-      "language": "Spanish",
-      "proficiency": "Beginner"
+      "language": "English",
+      "proficiency": "Very Good Proficiency"
     }
   ],
   "technicalSkills": [
     {
-      "category": "Languages",
+      "category": "Atlassian & Workflow",
       "skills": [
-        { "name": "Python", "level": 5, "icon": "devicon-python-plain" },
-        { "name": "Dart", "level": 5, "icon": "devicon-dart-plain" },
-        { "name": "TypeScript", "level": 4, "icon": "devicon-typescript-plain" },
-        { "name": "Bash", "level": 4, "icon": "devicon-bash-plain" },
-        { "name": "PowerShell", "level": 4, "icon": "devicon-powershell-plain" },
-        { "name": "Java", "level": 2, "icon": "devicon-java-plain" },
-        { "name": "Rust", "level": 2, "icon": "devicon-rust-original" }
+        {
+          "name": "Jira",
+          "level": 4,
+          "icon": "devicon-jira-plain"
+        },
+        {
+          "name": "Confluence",
+          "level": 4,
+          "icon": "devicon-confluence-plain"
+        }
       ]
     },
     {
-      "category": "Frameworks & Mobile",
+      "category": "Automation & Engineering",
       "skills": [
-        { "name": "Flutter", "level": 5, "icon": "devicon-flutter-plain" },
-        { "name": "React (TypeScript)", "level": 4, "icon": "devicon-react-original" },
-        { "name": "Android (Java)", "level": 3, "icon": "devicon-android-plain" }
+        {
+          "name": "PowerShell",
+          "level": 3,
+          "icon": "devicon-powershell-plain"
+        },
+        {
+          "name": "MATLAB",
+          "level": 3,
+          "icon": "devicon-matlab-plain"
+        },
+        {
+          "name": "AutoCAD",
+          "level": 3,
+          "icon": "fas fa-drafting-compass"
+        },
+        {
+          "name": "Zapier",
+          "level": 3,
+          "icon": "fas fa-bolt"
+        }
       ]
     },
     {
-      "category": "Web Tooling",
+      "category": "Design",
       "skills": [
-        { "name": "Vite", "level": 3, "icon": "devicon-vitejs-plain" },
-        { "name": "Bun", "level": 3, "icon": "devicon-bun-plain" }
-      ]
-    },
-    {
-      "category": "AI & Prompt Engineering",
-      "skills": [
-        { "name": "Prompt Engineering", "level": 4, "icon": "fas fa-wand-magic-sparkles" },
-        { "name": "Claude Code", "level": 4, "icon": "fas fa-terminal" },
-        { "name": "Codex", "level": 4, "icon": "fas fa-robot" }
-      ]
-    },
-    {
-      "category": "Infrastructure",
-      "skills": [
-        { "name": "Linux", "level": 5, "icon": "devicon-linux-plain" },
-        { "name": "macOS", "level": 4, "icon": "devicon-apple-original" },
-        { "name": "Windows", "level": 4, "icon": "devicon-windows11-original" },
-        { "name": "Virtualization", "level": 4, "icon": "fas fa-layer-group" },
-        { "name": "Docker", "level": 4, "icon": "devicon-docker-plain" },
-        { "name": "Web Servers", "level": 3, "icon": "devicon-nginx-original" }
-      ]
-    },
-    {
-      "category": "Data",
-      "skills": [
-        { "name": "PostgreSQL", "level": 4, "icon": "devicon-postgresql-plain" },
-        { "name": "MongoDB", "level": 4, "icon": "devicon-mongodb-plain" }
-      ]
-    },
-    {
-      "category": "Automation & Testing",
-      "skills": [
-        { "name": "n8n", "level": 4, "icon": "fas fa-diagram-project" },
-        { "name": "Appium", "level": 4, "icon": "fas fa-mobile-screen-button" },
-        { "name": "Selenium", "level": 4, "icon": "devicon-selenium-original" },
-        { "name": "JMeter", "level": 3, "icon": "fas fa-gauge-high" }
+        {
+          "name": "Adobe Photoshop",
+          "level": 3,
+          "icon": "fas fa-image"
+        },
+        {
+          "name": "Canva",
+          "level": 4,
+          "icon": "fas fa-palette"
+        }
       ]
     }
   ],
   "softSkills": [
-    { "name": "Multitasking", "level": 5 },
-    { "name": "Attention to Detail", "level": 5 },
-    { "name": "Resourcefulness", "level": 5 },
-    { "name": "Cross-cultural Communication", "level": 4 }
+    {
+      "name": "Fast Learning",
+      "level": 5
+    },
+    {
+      "name": "Time Management",
+      "level": 5
+    },
+    {
+      "name": "Problem Solving",
+      "level": 5
+    },
+    {
+      "name": "Multitasking",
+      "level": 5
+    },
+    {
+      "name": "Teamwork",
+      "level": 4
+    }
   ]
-} 
+}

@@ -1,40 +1,24 @@
 {
-  "name": "Asad Al Badi",
-  "title": "Software Engineer",
-  "website": "asadalbadi.dev",
-  "avatar": "assets/images/profile_cropped.png",
+  "name": "Yousuf Al-Rawahy",
+  "title": "Jira Analyst",
+  "website": "",
+  "avatar": "assets/icons/icon-512.png",
   "contactInfo": [
     {
       "icon": "fas fa-envelope",
-      "text": "asad.badi@proton.me"
+      "text": "y.alrawahy@gmail.com"
     },
     {
       "icon": "fas fa-phone",
-      "text": "+968 91148404"
+      "text": "+968 91166463 / +968 77707170"
     },
     {
       "icon": "fas fa-map-marker-alt",
       "text": "Muscat, Oman"
     }
   ],
-  "socialLinks": [
-    {
-      "icon": "fab fa-github",
-      "url": "https://github.com/asad-albadi",
-      "label": "GitHub"
-    },
-    {
-      "icon": "fab fa-linkedin",
-      "url": "https://linkedin.com/in/asad-albadi",
-      "label": "LinkedIn"
-    },
-    {
-      "icon": "fas fa-server",
-      "url": "https://gist.github.com/asad-albadi/35387bd422d295fd79416d42febe7f7d",
-      "label": "Server Gist"
-    }
-  ],
+  "socialLinks": [],
   "footer": {
-    "copyright": "© 2025 Asad Al Badi's Portfolio. All rights reserved."
+    "copyright": "© 2026 Yousuf Al-Rawahy's Portfolio. All rights reserved."
   }
-} 
+}
