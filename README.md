@@ -1,4 +1,4 @@
-# Asad Al Badi — Portfolio
+# Yousuf Al Rawahi — Portfolio
 
 A fast, data-driven personal portfolio built with **pure HTML, CSS, and JavaScript** — no framework, no build step. Live at **[asadalbadi.dev](https://asadalbadi.dev)**.
 
@@ -86,4 +86,4 @@ MIT
 
 ---
 
-Built by Asad Al Badi.
+Built by Yousuf Al Rawahi.
