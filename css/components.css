@@ -4,6 +4,7 @@
 
 /* ---- Profile (sidebar) ------------------------------------ */
 .profile { display: flex; align-items: center; gap: var(--s-4); }
+.avatar { flex: none; }
 .avatar img {
   width: 60px; height: 60px;
   border-radius: 50%;
