@@ -1,0 +1,562 @@
+/* ============================================================
+   About page redesign (Phase 1)
+
+   Everything here is scoped to body.theme-about, which main.js sets
+   only while the About tab is active. The other tabs keep the
+   existing console design until they are redesigned.
+
+   --u is one "design pixel" of the 1670px approved reference, so the
+   desktop layout scales in proportion with the viewport.
+   ============================================================ */
+
+/* Hidden outside the About view */
+.about-only { display: none; }
+
+body.theme-about {
+  --u: clamp(0.8px, calc(100vw / 1670), 1.15px);
+  --page-w: calc(1670 * var(--u));
+  --page-side: max(0px, calc((100vw - var(--page-w)) / 2));
+  --header-h: calc(96 * var(--u));
+
+  /* Light tokens: also restyles shared chrome such as the mobile drawer */
+  --ground: #fdf5f4;
+  --ground-2: #fbeeed;
+  --surface: #ffffff;
+  --surface-2: #fbeeed;
+  --line: #efe3e2;
+  --line-strong: #e4d6d5;
+  --text: #15191f;
+  --text-dim: #2b313a;
+  --text-faint: #6b7079;
+  --accent: #d90b14;
+  --accent-press: #b90810;
+  --accent-soft: #f9d9d9;
+  --accent-line: #f0b7b8;
+  --ok: #129a35;
+  --shadow: 0 calc(10 * var(--u)) calc(30 * var(--u)) rgba(91, 40, 38, 0.07);
+
+  background: var(--ground);
+  color: var(--text);
+}
+
+body.theme-about .about-only { display: revert; }
+body.theme-about .bg,
+body.theme-about .footer,
+body.theme-about .sidebar .console-bar,
+body.theme-about .sidebar .console-key,
+body.theme-about .sidebar .title,
+body.theme-about .sidebar .status-label,
+body.theme-about .sidebar .status-clock,
+body.theme-about .sidebar .console-section:has(.social-links),
+body.theme-about .sidebar .contact-extra { display: none; }
+
+/* ---- Page grid: full-width header, sidebar left, content right ---- */
+body.theme-about .app {
+  position: relative;
+  overflow-x: clip;
+  max-width: none;
+  grid-template-columns:
+    calc(var(--page-side) + 44 * var(--u))
+    calc(333 * var(--u))
+    calc(45 * var(--u))
+    minmax(0, 1fr)
+    calc(var(--page-side) + 35 * var(--u));
+  grid-template-rows: var(--header-h) auto;
+}
+body.theme-about .main-content { display: contents; }
+
+/* ---- Header ------------------------------------------------------- */
+body.theme-about .navbar {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  background: rgba(253, 245, 244, 0.92);
+}
+body.theme-about .tabbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 100%;
+  padding: 0 calc(var(--page-side) + 42 * var(--u));
+  overflow: visible;
+}
+body.theme-about .tabbar-prompt { display: none; }
+body.theme-about .tab-navigation {
+  grid-column: 2;
+  margin-left: calc(24 * var(--u));
+  gap: calc(12 * var(--u));
+}
+body.theme-about .tab-btn {
+  height: calc(44 * var(--u));
+  padding: 0 calc(25 * var(--u));
+  border: 0;
+  border-radius: calc(10 * var(--u));
+  font-family: var(--font-body);
+  font-size: calc(18.5 * var(--u));
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+body.theme-about .tab-btn:hover { color: var(--accent); background: var(--ground-2); }
+body.theme-about .tab-btn.active {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+body.theme-about .nav-actions {
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: calc(39 * var(--u));
+}
+body.theme-about .nav-actions::before {
+  content: "";
+  width: 1px;
+  height: calc(40 * var(--u));
+  background: var(--line-strong);
+}
+body.theme-about .get-in-touch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(14 * var(--u));
+  width: calc(200 * var(--u));
+  height: calc(50 * var(--u));
+  border-radius: calc(11 * var(--u));
+  font-size: calc(18.5 * var(--u));
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #fff;
+  background: linear-gradient(180deg, #d60c15, #c10811);
+  box-shadow: 0 calc(5 * var(--u)) calc(14 * var(--u)) rgba(193, 8, 17, 0.2);
+  transition: transform var(--t-fast), box-shadow var(--t-fast), background var(--t-fast);
+}
+body.theme-about .get-in-touch svg { width: calc(25 * var(--u)); height: calc(25 * var(--u)); flex: none; }
+body.theme-about .get-in-touch:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, #c90a13, #ab060e);
+  box-shadow: 0 calc(8 * var(--u)) calc(18 * var(--u)) rgba(193, 8, 17, 0.28);
+}
+
+/* ---- Profile sidebar ---------------------------------------------- */
+body.theme-about .sidebar {
+  grid-column: 2;
+  grid-row: 2;
+  position: static;
+  height: auto;
+  padding: calc(47 * var(--u)) 0;
+  border: 0;
+  overflow: visible;
+  z-index: 1;
+}
+body.theme-about .console {
+  border-radius: calc(20 * var(--u));
+  overflow: visible;
+}
+body.theme-about .console-body {
+  padding: calc(33 * var(--u)) calc(22 * var(--u)) calc(30 * var(--u));
+  gap: 0;
+}
+body.theme-about .profile {
+  flex-direction: column;
+  gap: calc(18 * var(--u));
+  text-align: center;
+}
+body.theme-about .avatar {
+  width: calc(198 * var(--u));
+  height: calc(198 * var(--u));
+  border-radius: 50%;
+  overflow: hidden;
+}
+/* Crops the wider photo to head and shoulders, clear of its bottom-right watermark */
+body.theme-about .avatar img {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  object-position: 50% 42%;
+  transform: scale(1.18);
+  transform-origin: 50% 42%;
+}
+body.theme-about .sidebar .name {
+  font-family: var(--font-body);
+  font-size: calc(31 * var(--u));
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+}
+body.theme-about .about-role {
+  display: block;
+  margin-top: calc(9 * var(--u));
+  font-size: calc(19 * var(--u));
+  line-height: calc(28 * var(--u));
+  letter-spacing: -0.012em;
+  color: var(--text-dim);
+}
+body.theme-about .status {
+  align-self: center;
+  gap: calc(9 * var(--u));
+  height: calc(37 * var(--u));
+  margin: calc(16 * var(--u)) 0 calc(23 * var(--u));
+  padding: 0 calc(14 * var(--u));
+  border: 0;
+  border-radius: calc(10 * var(--u));
+  background: #dff4e0;
+}
+body.theme-about .status-dot {
+  width: calc(11 * var(--u));
+  height: calc(11 * var(--u));
+  animation: none;
+}
+body.theme-about .status-text {
+  font-size: calc(16 * var(--u));
+  letter-spacing: -0.012em;
+  color: var(--text-dim);
+}
+body.theme-about .contact-info {
+  gap: calc(6 * var(--u));
+  padding: calc(14 * var(--u)) 0;
+  border-block: 1px solid var(--line);
+}
+body.theme-about .info-item {
+  gap: calc(12 * var(--u));
+  min-height: calc(36 * var(--u));
+  padding: 0 calc(4 * var(--u));
+  font-family: var(--font-body);
+  font-size: calc(17 * var(--u));
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+body.theme-about .info-item:hover { background: none; color: var(--accent); }
+body.theme-about .info-item span { min-width: 0; overflow-wrap: anywhere; }
+body.theme-about .info-item i {
+  flex: none;
+  width: calc(25 * var(--u));
+  height: calc(25 * var(--u));
+  color: inherit;
+  background: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+body.theme-about .info-item i::before { content: none; }
+body.theme-about .info-item i[class*="fa-envelope"] {
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linejoin='round'%3E%3Crect x='2.5' y='5' width='19' height='14.5' rx='2'/%3E%3Cpath d='m3 6.500 9 7 9-7'/%3E%3C/svg%3E");
+}
+body.theme-about .info-item i[class*="fa-phone"] {
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M21 16.900v3a2 2 0 0 1-2.200 2 19.800 19.800 0 0 1-8.600-3.100 19.500 19.500 0 0 1-6-6A19.800 19.800 0 0 1 1.100 4.200 2 2 0 0 1 3.100 2h3a2 2 0 0 1 2 1.700c.1 1 .4 1.900.7 2.800a2 2 0 0 1-.5 2.100L7.100 9.900a16 16 0 0 0 6 6l1.300-1.300a2 2 0 0 1 2.100-.4c.9.300 1.800.6 2.800.7a2 2 0 0 1 1.700 2z'/%3E%3C/svg%3E");
+}
+body.theme-about .info-item i[class*="fa-map-marker"] {
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linejoin='round'%3E%3Cpath d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E");
+}
+body.theme-about .about-cv-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(10 * var(--u));
+  width: 100%;
+  height: calc(53 * var(--u));
+  margin-top: calc(24 * var(--u));
+  border: 1px solid var(--accent-line);
+  border-radius: calc(12 * var(--u));
+  font-size: calc(18.5 * var(--u));
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  background: #fff;
+  transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
+}
+body.theme-about .about-cv-btn svg {
+  width: calc(24 * var(--u));
+  height: calc(24 * var(--u));
+  color: var(--accent);
+}
+body.theme-about .about-cv-btn:hover {
+  border-color: var(--accent);
+  background: #fff5f5;
+  transform: translateY(-1px);
+}
+
+/* ---- Main content ------------------------------------------------- */
+body.theme-about .tab-content {
+  grid-column: 4;
+  grid-row: 2;
+  max-width: none;
+  padding: calc(77 * var(--u)) 0 calc(47 * var(--u));
+}
+
+body.theme-about .about-art {
+  position: absolute;
+  top: var(--header-h);
+  right: 0;
+  width: calc(var(--page-side) + 705 * var(--u));
+  height: calc(390 * var(--u));
+  object-fit: cover;
+  object-position: right top;
+  pointer-events: none;
+}
+
+body.theme-about .about-hero,
+body.theme-about .about-section {
+  position: relative;
+  z-index: 1;
+}
+body.theme-about .about-kicker {
+  display: flex;
+  align-items: center;
+  gap: calc(14 * var(--u));
+  font-size: calc(14 * var(--u));
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--text);
+}
+body.theme-about .about-kicker::before {
+  content: "";
+  flex: none;
+  width: calc(30 * var(--u));
+  height: calc(3 * var(--u));
+  border-radius: 2px;
+  background: var(--accent);
+}
+body.theme-about .about-headline {
+  margin-top: calc(28 * var(--u));
+  font-family: var(--font-body);
+  max-width: calc(640 * var(--u));
+  font-size: calc(55 * var(--u));
+  font-weight: 800;
+  line-height: 1.015;
+  letter-spacing: -0.045em;
+  color: #111821;
+}
+body.theme-about .about-intro {
+  max-width: calc(575 * var(--u));
+  margin-top: calc(18 * var(--u));
+  font-size: calc(20 * var(--u));
+  line-height: calc(28 * var(--u));
+  letter-spacing: -0.014em;
+  color: var(--text-dim);
+}
+
+body.theme-about .about-section { margin-top: calc(76 * var(--u)); }
+body.theme-about .about-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: calc(29 * var(--u));
+  margin-top: calc(29 * var(--u));
+}
+body.theme-about .about-card {
+  position: relative;
+  min-height: calc(233 * var(--u));
+  padding: calc(24 * var(--u)) calc(30 * var(--u)) calc(26 * var(--u));
+  border: 1px solid var(--line);
+  border-radius: calc(18 * var(--u));
+  overflow: hidden;
+  transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
+}
+body.theme-about .about-card:hover {
+  transform: translateY(calc(-3 * var(--u)));
+  box-shadow: 0 calc(14 * var(--u)) calc(32 * var(--u)) rgba(91, 40, 38, 0.12);
+}
+body.theme-about .about-card-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right bottom;
+  pointer-events: none;
+}
+body.theme-about .about-card-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: calc(17 * var(--u));
+  min-height: calc(52 * var(--u));
+}
+body.theme-about .about-card h3 {
+  font-family: var(--font-body);
+  font-size: calc(31 * var(--u));
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+body.theme-about .about-card p {
+  position: relative;
+  margin-top: calc(13 * var(--u));
+  font-size: calc(19 * var(--u));
+  line-height: calc(26 * var(--u));
+  letter-spacing: -0.014em;
+}
+
+body.theme-about .card-vodafone { background: #fff8f7; }
+body.theme-about .card-vodafone:hover { border-color: var(--accent-line); }
+body.theme-about .card-vodafone .card-mark { width: calc(52 * var(--u)); height: calc(52 * var(--u)); }
+body.theme-about .card-vodafone h3 { color: #15191f; }
+body.theme-about .card-vodafone p { max-width: calc(372 * var(--u)); color: var(--text-dim); }
+
+body.theme-about .card-formula {
+  border-color: #23272d;
+  background: #1f2329;
+}
+body.theme-about .card-formula .card-mark { width: calc(92 * var(--u)); height: calc(46 * var(--u)); }
+body.theme-about .card-formula h3 { color: #fff; }
+body.theme-about .card-formula p { max-width: calc(362 * var(--u)); color: #eef0f2; }
+
+/* ---- Narrower desktop: keep the art clear of the copy ------------- */
+@media (max-width: 1335px) {
+  /* Scale the whole artwork down so the red panel stays visible, clear of the copy */
+  body.theme-about .about-art { width: 34vw; height: auto; aspect-ratio: 705 / 390; }
+  body.theme-about .about-hero { max-width: calc(100% - 20vw); }
+  body.theme-about .about-card p { max-width: 62%; }
+}
+
+/* Cards get too narrow for text and art side by side */
+@media (max-width: 1199px) {
+  body.theme-about .about-art { width: 30vw; }
+  body.theme-about .about-cards { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---- Tablet: stacked, sidebar becomes a wide two-column card ------ */
+@media (max-width: 1099px) {
+  body.theme-about { --u: 1px; --page-side: 0px; }
+
+  body.theme-about .app {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    padding-inline: 0;
+  }
+  body.theme-about .navbar { grid-column: 1; }
+  body.theme-about .mobile-header { display: none; }
+  body.theme-about .tabbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    height: 76px;
+    padding: 0 24px;
+  }
+  body.theme-about .tab-navigation { gap: 4px; }
+  body.theme-about .tab-btn { padding: 0 14px; font-size: 16px; }
+  body.theme-about .nav-actions::before { display: none; }
+  body.theme-about .get-in-touch { width: auto; height: 46px; padding: 0 18px; font-size: 16px; white-space: nowrap; }
+  body.theme-about .get-in-touch svg { width: 22px; height: 22px; }
+
+  body.theme-about .sidebar {
+    display: block;
+    grid-column: 1;
+    grid-row: 2;
+    padding: 32px 24px 0;
+  }
+  body.theme-about .console-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    column-gap: 32px;
+    align-content: center;
+    padding: 28px 32px;
+  }
+  body.theme-about .profile { grid-column: 1; grid-row: 1; }
+  body.theme-about .status { grid-column: 1; grid-row: 2; justify-self: center; }
+  body.theme-about .console-section:has(.contact-info) {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
+  }
+  body.theme-about .about-cv-btn { grid-column: 2; grid-row: 3; margin-top: 0; align-self: center; }
+  body.theme-about .avatar { width: 150px; height: 150px; }
+
+  body.theme-about .tab-content {
+    position: relative;
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 32px;
+    padding: 40px 24px 40px;
+    overflow: hidden;
+  }
+  body.theme-about .about-art { top: 0; width: 50vw; }
+  body.theme-about .about-hero { max-width: 60%; }
+  body.theme-about .about-headline { font-size: clamp(36px, 5.6vw, 48px); }
+  body.theme-about .about-intro { font-size: 18px; line-height: 26px; }
+  body.theme-about .about-section { margin-top: 56px; }
+  body.theme-about .about-cards { gap: 20px; }
+  body.theme-about .about-card { min-height: 220px; }
+  body.theme-about .about-card p { max-width: 60%; font-size: 18px; }
+  body.theme-about .card-vodafone p,
+  body.theme-about .card-formula p { max-width: 60%; }
+}
+
+/* ---- Phone: single column, nav moves into the existing drawer ----- */
+@media (max-width: 720px) {
+  body.theme-about .tabbar { display: none; }
+  body.theme-about .mobile-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+  }
+  body.theme-about .mobile-profile,
+  body.theme-about .mobile-cv-btn { display: none; }
+  body.theme-about .mobile-actions {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+  }
+  body.theme-about .menu-toggle { display: inline-flex; color: var(--text); font-size: 1.4rem; padding: 8px; }
+
+  body.theme-about .tab-content { margin-top: 20px; padding: 0 16px 32px; }
+  /* Artwork becomes a banner above the copy so it cannot sit behind text */
+  body.theme-about .about-art {
+    position: static;
+    display: block;
+    width: calc(100% + 32px);
+    max-width: none;
+    height: 130px;
+    aspect-ratio: auto;
+    margin: 0 -16px 28px;
+    object-position: right bottom;
+  }
+  body.theme-about .about-hero { max-width: none; }
+  body.theme-about .about-headline { font-size: clamp(32px, 9.4vw, 40px); }
+  body.theme-about .about-intro { max-width: none; font-size: 17px; line-height: 25px; }
+  body.theme-about .about-section { margin-top: 44px; }
+
+  /* Card art moves to a strip under the text so the two never overlap */
+  body.theme-about .about-card { min-height: 0; padding: 22px 20px 136px; }
+  body.theme-about .about-card p,
+  body.theme-about .card-vodafone p,
+  body.theme-about .card-formula p { max-width: none; font-size: 17px; line-height: 25px; }
+  body.theme-about .about-card-art {
+    inset: auto 0 0;
+    height: 130px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%);
+    mask-image: linear-gradient(to bottom, transparent, #000 45%);
+  }
+  body.theme-about .about-card h3 { font-size: 27px; }
+
+  body.theme-about .sidebar { padding: 16px 16px 0; }
+  body.theme-about .console-body { display: flex; padding: 28px 20px; }
+  body.theme-about .console-section:has(.contact-info) { align-self: stretch; }
+  body.theme-about .status { align-self: center; }
+  body.theme-about .about-cv-btn { margin-top: 20px; }
+  body.theme-about .avatar { width: 168px; height: 168px; }
+  body.theme-about .info-item { font-size: 16px; }
+}
+
+/* ---- Mobile drawer (shared markup, light copy for this view) ------ */
+@media (max-width: 900px) {
+  body.theme-about .mobile-menu-overlay { background: rgba(40, 20, 20, 0.35); }
+  body.theme-about .drawer-section .console-key,
+  body.theme-about .drawer-section:has(.mobile-social-links) { display: none; }
+  body.theme-about .mobile-nav-link,
+  body.theme-about .mobile-contact-info .info-item,
+  body.theme-about .drawer-download {
+    font-family: var(--font-body);
+    letter-spacing: -0.01em;
+    text-transform: none;
+  }
+  body.theme-about .mobile-nav-link::before { content: none; }
+  body.theme-about .drawer-download { color: #fff; font-weight: 600; }
+  body.theme-about .drawer-download .console-label { display: none; }
+  body.theme-about .drawer-download .about-only { display: inline; }
+}

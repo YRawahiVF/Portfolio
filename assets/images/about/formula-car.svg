@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 233" preserveAspectRatio="xMaxYMax slice">
+  <defs>
+    <radialGradient id="haze" cx=".82" cy=".62" r=".55"><stop offset="0" stop-color="#6a6e75" stop-opacity=".75"/><stop offset="1" stop-color="#3a3f46" stop-opacity="0"/></radialGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b3f46"/><stop offset="1" stop-color="#0b0c0f"/></linearGradient>
+    <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24272c"/><stop offset=".6" stop-color="#121317"/><stop offset="1" stop-color="#34373d"/></linearGradient>
+    <linearGradient id="streak" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff2020" stop-opacity="0"/><stop offset="1" stop-color="#ff2a2a"/></linearGradient>
+    <linearGradient id="tread" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#26282d"/><stop offset="1" stop-color="#0b0c0e"/></linearGradient>
+    <filter id="g3" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="g8" x="-20%" y="-500%" width="140%" height="1100%"><feGaussianBlur stdDeviation="8"/></filter>
+  </defs>
+  <rect width="600" height="233" fill="url(#haze)"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M470 76 600 44" stroke="url(#streak)" stroke-width="14" filter="url(#g8)"/>
+    <path d="M505 70 600 47" stroke="url(#streak)" stroke-width="2.5"/>
+    <path d="M230 232 400 204" stroke="url(#streak)" stroke-width="12" filter="url(#g8)"/>
+    <path d="M270 229 395 208" stroke="url(#streak)" stroke-width="2.5"/>
+    <path d="M500 214 600 192" stroke="url(#streak)" stroke-width="14" filter="url(#g8)"/>
+    <path d="M520 211 600 193" stroke="url(#streak)" stroke-width="2.5"/>
+  </g>
+  <path fill="url(#body)" d="M452 233v-30q18-36 56-50l92-14v94z"/>
+  <path fill="#0d0e11" d="M510 233l8-34 82-18v52z"/>
+  <path fill="url(#plate)" d="M424 88 600 106v30L498 128l44 34-14 46-34-14q-8-40-42-62-24-16-28-44z"/>
+  <path fill="#454950" d="M424 88 600 106v5L433 94z"/>
+  <path d="M452 99 600 113" fill="none" stroke="#ff2a2a" stroke-width="10" filter="url(#g3)"/>
+  <path d="M458 100 600 113.500" fill="none" stroke="#ff6a5e" stroke-width="2.4"/>
+  <circle cx="412" cy="244" r="74" fill="url(#tread)"/>
+  <path d="M341 233a74 74 0 0 1 58-62" fill="none" stroke="#ff9a1a" stroke-width="5.500" stroke-linecap="round"/>
+  <path d="M356 233a58 58 0 0 1 48-46" fill="none" stroke="#3a3d43" stroke-width="3"/>
+  <circle cx="412" cy="244" r="34" fill="#17191d"/>
+</svg>

@@ -63,9 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
       data.contactInfo.forEach(item => {
         const infoItem = document.createElement('div');
         infoItem.className = 'info-item';
+        // Any extra phone number stays on the other tabs; the About sidebar shows the first
+        const [primary, ...extra] = item.text.split(' / ');
+        const extraHTML = extra.length ? `<span class="contact-extra"> / ${extra.join(' / ')}</span>` : '';
         infoItem.innerHTML = `
           <i class="${item.icon}"></i>
-          <span>${item.text}</span>
+          <span>${primary}${extraHTML}</span>
         `;
         contactInfoContainerSidebar.appendChild(infoItem);
       });

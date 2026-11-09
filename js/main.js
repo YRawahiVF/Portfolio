@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mobile "download cv" buttons (header + drawer) proxy to the real
   // generator button that lives in the (hidden-on-mobile) sidebar console.
-  document.querySelectorAll('#header-download-cv, #drawer-download-cv').forEach(btn => {
+  document.querySelectorAll('#header-download-cv, #drawer-download-cv, #sidebar-download-cv').forEach(btn => {
     btn.addEventListener('click', () => {
       if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('show');
       const realBtn = document.getElementById('download-cv-btn');
@@ -190,8 +190,13 @@ function setupTabNavigation() {
     }
   }
 
+  // The redesigned light theme applies to the About tab only for now
+  document.body.classList.toggle('theme-about', activeTabId === 'about');
+
   // Function to handle tab switching
   const handleTabClick = (targetId) => {
+      document.body.classList.toggle('theme-about', targetId === 'about');
+
       // Remove active class from all main buttons and panes
       mainTabButtons.forEach(btn => btn.classList.remove('active'));
       tabPanes.forEach(pane => pane.classList.remove('active'));
@@ -214,6 +219,16 @@ function setupTabNavigation() {
     button.addEventListener('click', () => {
       const targetId = button.getAttribute('data-tab');
       handleTabClick(targetId);
+    });
+  });
+
+  // "Get in Touch" opens the existing Contact tab
+  document.querySelectorAll('.js-get-in-touch').forEach(button => {
+    button.addEventListener('click', () => {
+      handleTabClick('contact');
+      if (mobileNavContainer) {
+        mobileNavContainer.querySelectorAll('.mobile-nav-link').forEach(link => link.classList.remove('active'));
+      }
     });
   });
 

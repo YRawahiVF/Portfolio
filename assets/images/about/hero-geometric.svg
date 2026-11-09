@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 705 390" preserveAspectRatio="xMaxYMin slice">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="1" x2="1" y2="0.35"><stop offset="0" stop-color="#fbe9e7" stop-opacity="0"/><stop offset=".3" stop-color="#f8e6e4" stop-opacity=".85"/><stop offset="1" stop-color="#f5d9d8"/></linearGradient>
+    <linearGradient id="band" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#f4c4c5" stop-opacity=".25"/><stop offset="1" stop-color="#f0aeb1" stop-opacity=".6"/></linearGradient>
+    <linearGradient id="rose" x1="0" y1=".55" x2="1" y2=".45"><stop offset="0" stop-color="#f19ca1"/><stop offset=".55" stop-color="#f6c2c3"/><stop offset="1" stop-color="#fbe4e2" stop-opacity=".55"/></linearGradient>
+    <linearGradient id="red" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#d9070f"/><stop offset=".55" stop-color="#e5141c"/><stop offset="1" stop-color="#f23a3f"/></linearGradient>
+    <linearGradient id="redSoft" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ee7d82" stop-opacity=".95"/><stop offset="1" stop-color="#f3aeb0" stop-opacity=".45"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".62"/><stop offset="1" stop-color="#fff" stop-opacity=".12"/></linearGradient>
+  </defs>
+  <path fill="url(#wash)" d="M0 390 245 0h460v390z"/>
+  <path fill="url(#band)" d="M530 107 598 0h107v18L465 390H330z"/>
+  <path fill="url(#rose)" d="M128 390 235 214q13-20 37-20h288L430 390z"/>
+  <path fill="url(#glass)" d="M340 290 405 194h146l-66 96z"/>
+  <path fill="url(#glass)" d="M228 390 285 305q10-15 30-15h232l-66 100z" opacity=".75"/>
+  <path fill="url(#redSoft)" d="M445 390 531 261 595 227 487 390z"/>
+  <path fill="url(#red)" d="M487 390 583 245q13-18 35-18h87v163z"/>
+  <g fill="none" stroke="#fff" stroke-width="1.6" stroke-opacity=".85">
+    <path d="M340 290 454 121q10-14 30-14h141"/>
+    <path d="M228 390 285 305q10-15 30-15h232"/>
+    <path d="M530 107 598 0"/>
+    <path d="M465 390 705 18" stroke-opacity=".5"/>
+  </g>
+</svg>
