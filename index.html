@@ -29,7 +29,9 @@
     <link rel="stylesheet" href="css/style.css?v=2">
     <link rel="stylesheet" href="css/layout.css?v=2">
     <link rel="stylesheet" href="css/components.css?v=3">
-    <link rel="stylesheet" href="css/about.css?v=1">
+    <link rel="stylesheet" href="css/about.css?v=2">
+    <link rel="stylesheet" href="css/resume.css?v=2">
+    <link rel="stylesheet" href="css/honors.css?v=1">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
@@ -49,7 +51,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     </noscript>
 </head>
-<body class="theme-about">
+<body class="theme-light">
     <!-- Decorative background: dotted grid + vignette (non-interactive) -->
     <div class="bg" aria-hidden="true">
         <div class="bg-grid"></div>
@@ -157,7 +159,7 @@
                         <h2 class="about-kicker">What I do</h2>
                         <div class="about-cards">
                             <article class="about-card card-vodafone">
-                                <img class="about-card-art" src="assets/images/about/vodafone-building.svg" alt="" aria-hidden="true">
+                                <img class="about-card-art" src="assets/images/about/vodafone-oman-building.webp" width="1200" height="809" alt="" aria-hidden="true" loading="lazy" decoding="async">
                                 <div class="about-card-head">
                                     <img class="card-mark" src="assets/images/about/vodafone-mark.svg" alt="">
                                     <h3>Vodafone Oman</h3>
@@ -165,9 +167,9 @@
                                 <p>Product development and configuration, from requirements to delivery, including internal solutions such as the Product Management Portal.</p>
                             </article>
                             <article class="about-card card-formula">
-                                <img class="about-card-art" src="assets/images/about/formula-car.svg" alt="" aria-hidden="true">
+                                <img class="about-card-art" src="assets/images/about/formula-room-cars.webp" width="1600" height="900" alt="" aria-hidden="true" loading="lazy" decoding="async">
                                 <div class="about-card-head">
-                                    <img class="card-mark" src="assets/images/about/f1-mark.svg" alt="">
+                                    <img class="card-mark" src="assets/images/about/formula-room-logo.png" alt="">
                                     <h3>Formula Room</h3>
                                 </div>
                                 <p>Managing the Formula Room Instagram platform and developing the Formula Room website, focused on Formula 1 news, analysis, and insights.</p>
@@ -178,33 +180,39 @@
 
                 <!-- ===== RESUME ===== -->
                 <section id="resume" class="section tab-pane">
-                    <div class="section-head">
-                        <span class="section-index">02</span>
-                        <h3 class="section-title"><!-- resume.json --></h3>
-                        <span class="section-rule"></span>
+                    <img class="about-art resume-art" src="assets/images/about/hero-geometric.svg" alt="" aria-hidden="true">
+
+                    <div class="about-hero resume-hero">
+                        <p class="about-kicker">Resume</p>
+                        <h2 class="about-headline resume-headline">My Professional Journey</h2>
+                        <p class="about-intro resume-intro">A summary of my work experience, education, and training.</p>
                     </div>
 
                     <div class="resume-content">
                         <div class="resume-section">
-                            <span class="console-key">// work experience</span>
-                            <div class="timeline"><!-- resume.json --></div>
+                            <h3 class="about-kicker">Work experience</h3>
+                            <div class="timeline" id="resume-experience"><!-- resume.json --></div>
                         </div>
                         <div class="resume-section">
-                            <span class="console-key">// education</span>
-                            <div class="timeline"><!-- resume.json --></div>
-                        </div>
-                        <div class="resume-section">
-                            <span class="console-key">// certifications</span>
-                            <div class="timeline"><!-- resume.json --></div>
+                            <h3 class="about-kicker">Education &amp; training</h3>
+                            <div class="timeline" id="resume-education"><!-- resume.json --></div>
                         </div>
 
-                        <div class="skills-section" id="technical-skills">
-                            <span class="console-key">// technical skills</span>
-                            <div class="skills-grid"><!-- resume.json --></div>
-                        </div>
-                        <div class="skills-section" id="soft-skills">
-                            <span class="console-key">// soft skills</span>
-                            <div class="skills-grid"><!-- resume.json --></div>
+                        <!-- Kept for later phases, not shown on Resume: awards and programs
+                             (moving to Honors) and skills (on hold). Data stays in resume.json. -->
+                        <div class="resume-archive" hidden>
+                            <div class="resume-section">
+                                <span class="console-key">// certifications</span>
+                                <div class="timeline" id="resume-certifications"><!-- resume.json --></div>
+                            </div>
+                            <div class="skills-section" id="technical-skills">
+                                <span class="console-key">// technical skills</span>
+                                <div class="skills-grid"><!-- resume.json --></div>
+                            </div>
+                            <div class="skills-section" id="soft-skills">
+                                <span class="console-key">// soft skills</span>
+                                <div class="skills-grid"><!-- resume.json --></div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -249,14 +257,15 @@
 
                 <!-- ===== HONORS ===== -->
                 <section id="honors" class="section tab-pane">
-                    <div class="section-head">
-                        <span class="section-index">05</span>
-                        <h3 class="section-title"><!-- honors.json --></h3>
-                        <span class="section-rule"></span>
+                    <img class="about-art resume-art" src="assets/images/about/hero-geometric.svg" alt="" aria-hidden="true">
+
+                    <div class="about-hero resume-hero">
+                        <p class="about-kicker">Honors</p>
+                        <h2 class="about-headline resume-headline">Awards &amp; Achievements</h2>
+                        <p class="about-intro resume-intro">Recognition, programs, and competitions throughout my journey.</p>
                     </div>
-                    <div class="honors-content">
-                        <div class="timeline"><!-- honors.json --></div>
-                    </div>
+
+                    <div class="resume-content" id="honors-content"><!-- honors.json --></div>
                 </section>
 
                 <!-- ===== CONTACT ===== -->
@@ -300,8 +309,8 @@
         </div>
     </div>
 
-    <script src="js/data-loader.js?v=3"></script>
-    <script src="js/main.js?v=3"></script>
+    <script src="js/data-loader.js?v=5"></script>
+    <script src="js/main.js?v=5"></script>
     <script src="js/portfolio.js?v=2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="js/pdfGenerator.js?v=2"></script>

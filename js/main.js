@@ -144,6 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function showTabContent(tabPane) {
   if (!tabPane) return;
   const elements = tabPane.querySelectorAll('.service-card, .timeline-item, .portfolio-item, .skill-item');
+  // Redesigned tabs have no entrance animation
+  if (document.body.classList.contains('theme-light')) return;
   elements.forEach(element => {
     element.classList.add('fade-in'); 
   });
@@ -190,12 +192,13 @@ function setupTabNavigation() {
     }
   }
 
-  // The redesigned light theme applies to the About tab only for now
-  document.body.classList.toggle('theme-about', activeTabId === 'about');
+  // The redesigned light theme applies to the tabs redesigned so far
+  const LIGHT_TABS = ['about', 'resume', 'honors'];
+  document.body.classList.toggle('theme-light', LIGHT_TABS.includes(activeTabId));
 
   // Function to handle tab switching
   const handleTabClick = (targetId) => {
-      document.body.classList.toggle('theme-about', targetId === 'about');
+      document.body.classList.toggle('theme-light', LIGHT_TABS.includes(targetId));
 
       // Remove active class from all main buttons and panes
       mainTabButtons.forEach(btn => btn.classList.remove('active'));

@@ -24,28 +24,40 @@
       "logo": "https://brandlogos.net/wp-content/uploads/2022/08/vodafone-logo_brandlogos.net_yvaun.png"
     },
     {
+      "title": "Founder & Digital Media Manager",
+      "company": "Formula Room",
+      "period": "2021 - Present",
+      "description": "Managing Formula Room, a Formula 1 media platform focused on motorsport news, race analysis, content creation, and audience engagement, while developing its dedicated website.",
+      "logo": "assets/images/about/formula-room-logo.png",
+      "logoBackground": "dark"
+    },
+    {
       "title": "Intern / On-the-Job Training",
       "company": "Luxury Home Smart Systems",
       "period": "December 2022 - February 2023",
       "description": "Completed practical training in smart-home systems.",
-      "logo": ""
+      "logo": "",
+      "icon": "house-wifi"
     }
   ],
   "education": [
     {
       "degree": "Bachelor of Technology (B-Tech): Electronics and Telecommunication",
       "institution": "University of Technology and Applied Sciences, Al-Khuwair, Muscat",
-      "period": "2015 - 2022"
+      "period": "2015 - 2022",
+      "icon": "graduation-cap"
     },
     {
       "degree": "Diploma",
       "institution": "Ahmed Bin Majid Private School, Al-Khoudh, Muscat",
-      "period": "2002 - 2015"
+      "period": "2002 - 2015",
+      "icon": "book-open"
     },
     {
       "degree": "General English Course",
       "institution": "Modern Gulf Institute, Al-Hail, Muscat",
-      "period": "August 2010 - September 2010"
+      "period": "August 2010 - September 2010",
+      "icon": "languages"
     }
   ],
   "certifications": [

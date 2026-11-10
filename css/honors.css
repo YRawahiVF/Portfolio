@@ -1,0 +1,35 @@
+/* ============================================================
+   Honors page redesign (Phase 3)
+
+   Hero, timeline and cards come from resume.css. Differences
+   from Resume: every entry uses a pink icon tile, markers are
+   red outline rings, and the date sits above the description.
+   ============================================================ */
+
+body.theme-light #honors .resume-mark.is-icon {
+  border-color: transparent;
+  background: #fbe3e3;
+}
+body.theme-light #honors .resume-mark.is-icon svg { color: var(--accent); }
+
+/* Outline ring markers */
+body.theme-light #honors .timeline-dot {
+  box-sizing: border-box;
+  border: calc(2.5 * var(--u)) solid var(--accent);
+  background: var(--ground);
+  width: calc(14 * var(--u));
+  height: calc(14 * var(--u));
+  left: calc(var(--rail) * -1 + 6 * var(--u) - 7 * var(--u) + 0.5px);
+}
+
+body.theme-light #honors .resume-when { margin-top: calc(8 * var(--u)); }
+body.theme-light #honors .resume-desc { margin-top: calc(8 * var(--u)); }
+
+@media (max-width: 720px) {
+  body.theme-light #honors .timeline-dot {
+    width: 13px;
+    height: 13px;
+    border-width: 2.5px;
+    left: calc(var(--rail) * -1 - 1px);
+  }
+}

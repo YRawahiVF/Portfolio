@@ -195,6 +195,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   
+  // Thin outline icons (Lucide, ISC licence) for entries without a logo
+  const ICONS = {
+    'graduation-cap': '<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
+    'book-open': '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
+    'languages': '<path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/>',
+    'house-wifi': '<path d="M9.5 13.866a4 4 0 0 1 5 .01"/><path d="M12 17h.01"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M7 10.754a8 8 0 0 1 10 0"/>',
+    'briefcase': '<path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/>',
+    'trophy': '<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>',
+    'award': '<path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/>',
+    'pen': '<path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/>',
+    'calendar': '<rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>',
+  };
+  const svgIcon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ''}</svg>`;
+
   // Load resume section
   function loadResumeSection(data) {
     const resumeSection = document.getElementById('resume');
@@ -206,57 +220,68 @@ document.addEventListener('DOMContentLoaded', () => {
       sectionHeader.textContent = data.title;
     }
     
+    // Display helpers: short month names and an en dash; the stored text is unchanged
+    const MONTHS = { January: 'Jan', February: 'Feb', March: 'Mar', April: 'Apr', May: 'May', June: 'Jun', July: 'Jul', August: 'Aug', September: 'Sep', October: 'Oct', November: 'Nov', December: 'Dec' };
+    const shortPeriod = p => String(p || '').replace(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\b/g, m => MONTHS[m]).replace(/\s+-\s+/g, ' – ');
+    const markHTML = (item, kind) => {
+      if (item.logo) {
+        const dark = item.logoBackground === 'dark' ? ' is-dark' : '';
+        return `<div class="resume-mark${dark}"><img src="${item.logo}" alt="${item.company || ''} logo"></div>`;
+      }
+      const name = ICONS[item.icon] ? item.icon : (kind === 'education' ? 'graduation-cap' : 'briefcase');
+      return `<div class="resume-mark is-icon is-${kind}">${svgIcon(name)}</div>`;
+    };
+    const timelineItem = inner => {
+      const el = document.createElement('div');
+      el.className = 'timeline-item';
+      el.innerHTML = `<span class="timeline-dot" aria-hidden="true"></span>${inner}`;
+      return el;
+    };
+
     // Work Experience
-    const experienceTimeline = resumeSection.querySelector('.resume-section:nth-of-type(1) .timeline');
+    const experienceTimeline = resumeSection.querySelector('#resume-experience');
     if (experienceTimeline) {
       experienceTimeline.innerHTML = '';
       data.experience.forEach(job => {
-        const timelineItem = document.createElement('div');
-        timelineItem.className = 'timeline-item';
-        
-        // Create logo element if URL exists
-        let logoHTML = '';
-        if (job.logo) {
-            logoHTML = `<img src="${job.logo}" alt="${job.company} logo" class="company-logo">`;
-        }
-
-        timelineItem.innerHTML = `
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h4>${job.title}</h4>
-            <div class="company-info"> 
-              ${logoHTML}
-              <p class="company">${job.company}</p>
+        experienceTimeline.appendChild(timelineItem(`
+          <article class="resume-card">
+            ${markHTML(job, 'work')}
+            <div class="resume-body">
+              <div class="resume-top">
+                <h4>${job.title}</h4>
+                <span class="resume-date">${shortPeriod(job.period)}</span>
+              </div>
+              <p class="resume-org">${job.company}</p>
+              <p class="resume-desc">${job.description}</p>
             </div>
-            <p class="period">${job.period}</p>
-            <p class="description">${job.description}</p>
-          </div>
-        `;
-        experienceTimeline.appendChild(timelineItem);
+          </article>`));
       });
     }
-    
-    // Education
-    const educationTimeline = resumeSection.querySelector('.resume-section:nth-of-type(2) .timeline');
+
+    // Education: "Degree: Field" shows the field as the red line, institution below
+    const educationTimeline = resumeSection.querySelector('#resume-education');
     if (educationTimeline) {
       educationTimeline.innerHTML = '';
       data.education.forEach(edu => {
-        const timelineItem = document.createElement('div');
-        timelineItem.className = 'timeline-item';
-        timelineItem.innerHTML = `
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h4>${edu.degree}</h4>
-            <p class="company">${edu.institution}</p>
-            <p class="period">${edu.period}</p>
-          </div>
-        `;
-        educationTimeline.appendChild(timelineItem);
+        const [degree, ...rest] = String(edu.degree).split(': ');
+        const field = rest.join(': ');
+        const org = field
+          ? `<p class="resume-org">${field}</p><p class="resume-desc">${edu.institution}</p>`
+          : `<p class="resume-org">${edu.institution}</p>`;
+        educationTimeline.appendChild(timelineItem(`
+          <article class="resume-card">
+            ${markHTML(edu, 'education')}
+            <div class="resume-body">
+              <h4>${degree}</h4>
+              ${org}
+              <p class="resume-when">${svgIcon('calendar')}${shortPeriod(edu.period)}</p>
+            </div>
+          </article>`));
       });
     }
-    
+
     // Certifications
-    const certTimeline = resumeSection.querySelector('.resume-section:nth-of-type(3) .timeline');
+    const certTimeline = resumeSection.querySelector('#resume-certifications');
     if (certTimeline) {
       certTimeline.innerHTML = '';
       data.certifications.forEach(cert => {
@@ -498,28 +523,42 @@ document.addEventListener('DOMContentLoaded', () => {
       sectionHeader.textContent = data.title;
     }
     
-    // Awards timeline
-    const timeline = honorsSection.querySelector('.timeline');
-    if (timeline) {
-      timeline.innerHTML = '';
-      
-      data.awards.forEach(award => {
-        const timelineItem = document.createElement('div');
-        timelineItem.className = 'timeline-item';
-        timelineItem.innerHTML = `
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h4>${award.title}</h4>
-            <p class="company">${award.organization}</p>
-            <p class="period">${award.date}</p>
-            <p class="description">${award.description}</p>
-          </div>
-        `;
-        timeline.appendChild(timelineItem);
+    // Redesigned layout: one titled timeline per category (awards, programs)
+    const content = honorsSection.querySelector('#honors-content');
+    if (content) {
+      content.innerHTML = '';
+      const groups = Array.isArray(data.categories) && data.categories.length
+        ? data.categories
+        : [{ id: '', title: data.title }];
+      const dash = d => String(d || '').replace(/\s+-\s+/g, ' – ');
+      groups.forEach(group => {
+        const items = data.awards.filter(a => !group.id || (a.category || groups[0].id) === group.id);
+        if (!items.length) return;
+        const section = document.createElement('div');
+        section.className = 'resume-section';
+        section.innerHTML = `<h3 class="about-kicker">${group.title}</h3><div class="timeline"></div>`;
+        const timeline = section.querySelector('.timeline');
+        items.forEach(award => {
+          const item = document.createElement('div');
+          item.className = 'timeline-item';
+          item.innerHTML = `
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <article class="resume-card">
+              <div class="resume-mark is-icon">${svgIcon(ICONS[award.icon] ? award.icon : 'award')}</div>
+              <div class="resume-body">
+                <h4>${award.title}</h4>
+                <p class="resume-org">${award.organization}</p>
+                <p class="resume-when">${svgIcon('calendar')}${dash(award.date)}</p>
+                <p class="resume-desc">${award.description}</p>
+              </div>
+            </article>`;
+          timeline.appendChild(item);
+        });
+        content.appendChild(section);
       });
     }
   }
-  
+
   // Load contact section
   function loadContactSection(data) {
     const contactSection = document.getElementById('contact');

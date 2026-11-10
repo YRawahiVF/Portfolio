@@ -1,30 +1,48 @@
 {
   "title": "Honors & Awards",
   "sectionIcon": "fas fa-award",
+  "categories": [
+    {
+      "id": "awards",
+      "title": "Awards & Recognition"
+    },
+    {
+      "id": "programs",
+      "title": "Programs & Competitions"
+    }
+  ],
   "awards": [
     {
       "title": "Game Changer 2025",
       "organization": "Vodafone Oman",
       "date": "2025",
-      "description": "Recognized for independently developing products that delivered significant cost savings."
+      "description": "Recognized for independently developing products that delivered significant cost savings.",
+      "category": "awards",
+      "icon": "trophy"
     },
     {
       "title": "Best Project Award - Drowning Bracelet Alert",
       "organization": "University of Technology and Applied Sciences",
       "date": "2021 - 2022",
-      "description": "Received the Best Project Award for the Drowning Bracelet Alert project."
+      "description": "Received the Best Project Award for the Drowning Bracelet Alert project.",
+      "category": "awards",
+      "icon": "award"
     },
     {
       "title": "Al Namaa Entrepreneurial Campus",
       "organization": "University of Technology and Applied Sciences",
       "date": "2016",
-      "description": "Participated in the Al Namaa Entrepreneurial Campus program."
+      "description": "Participated in the Al Namaa Entrepreneurial Campus program.",
+      "category": "programs",
+      "icon": "graduation-cap"
     },
     {
       "title": "Handwriting Competition",
       "organization": "Ahmed Bin Majid Private School",
       "date": "September 2014",
-      "description": "Recognized through the school's handwriting competition."
+      "description": "Recognized through the school's handwriting competition.",
+      "category": "programs",
+      "icon": "pen"
     }
   ]
 }
