@@ -191,6 +191,8 @@ body.theme-light .about-role {
   letter-spacing: -0.012em;
   color: var(--text-dim);
 }
+/* Space between the role line and the contact divider */
+body.theme-light .profile { margin-bottom: calc(24 * var(--u)); }
 body.theme-light .status {
   align-self: center;
   gap: calc(9 * var(--u));
