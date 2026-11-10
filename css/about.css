@@ -48,7 +48,10 @@ body.theme-light .sidebar .title,
 body.theme-light .sidebar .status-label,
 body.theme-light .sidebar .status-clock,
 body.theme-light .sidebar .console-section:has(.social-links),
-body.theme-light .sidebar .contact-extra { display: none; }
+body.theme-light .sidebar .contact-sep { display: none; }
+
+/* Second phone number on its own line */
+body.theme-light .sidebar .contact-extra { display: block; }
 
 /* ---- Page grid: full-width header, sidebar left, content right ---- */
 body.theme-light .app {
@@ -230,6 +233,7 @@ body.theme-light .info-item {
 }
 body.theme-light .info-item:hover { background: none; color: var(--accent); }
 body.theme-light .info-item span { min-width: 0; overflow-wrap: anywhere; }
+body.theme-light .info-item:has(.contact-extra) { padding-block: calc(4 * var(--u)); }
 body.theme-light .info-item i {
   flex: none;
   width: calc(25 * var(--u));
@@ -276,6 +280,62 @@ body.theme-light .about-cv-btn:hover {
   background: #fff5f5;
   transform: translateY(-1px);
 }
+
+/* Socials: below Download CV */
+body.theme-light .sidebar-socials {
+  margin-top: calc(22 * var(--u));
+  padding-top: calc(18 * var(--u));
+  border-top: 1px solid var(--line);
+}
+body.theme-light .sidebar-socials[hidden] { display: none; }
+body.theme-light .sidebar-socials-title {
+  margin-bottom: calc(8 * var(--u));
+  padding: 0 calc(4 * var(--u));
+  font-size: calc(13 * var(--u));
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+body.theme-light .sidebar-socials-list { display: flex; flex-direction: column; gap: calc(4 * var(--u)); }
+body.theme-light .social-row {
+  display: flex;
+  align-items: center;
+  gap: calc(12 * var(--u));
+  min-height: calc(42 * var(--u));
+  margin: 0 calc(-6 * var(--u));
+  padding: calc(5 * var(--u)) calc(10 * var(--u));
+  border-radius: calc(10 * var(--u));
+  font-size: calc(17 * var(--u));
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  transition: background var(--t-fast), color var(--t-fast);
+}
+body.theme-light .social-row i {
+  flex: none;
+  width: calc(25 * var(--u));
+  font-size: calc(20 * var(--u));
+  text-align: center;
+}
+body.theme-light .social-text { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
+body.theme-light .social-label,
+body.theme-light .social-handle { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+body.theme-light .social-handle {
+  font-size: calc(14 * var(--u));
+  font-weight: 400;
+  color: var(--text-faint);
+}
+body.theme-light .social-arrow {
+  flex: none;
+  width: calc(16 * var(--u));
+  height: calc(16 * var(--u));
+  margin-left: auto;
+  color: var(--text-faint);
+  transition: color var(--t-fast), transform var(--t-fast);
+}
+body.theme-light .social-row:hover { color: var(--accent); background: #fdeceb; }
+body.theme-light .social-row:hover .social-arrow { color: var(--accent); transform: translate(1px, -1px); }
 
 /* ---- Main content ------------------------------------------------- */
 body.theme-light .tab-content {
@@ -476,6 +536,8 @@ body.theme-light .card-formula p { color: #eef0f2; }
     align-self: center;
   }
   body.theme-light .about-cv-btn { grid-column: 2; grid-row: 3; margin-top: 0; align-self: center; }
+  body.theme-light .sidebar-socials { grid-column: 1 / -1; grid-row: 4; margin-top: 24px; }
+  body.theme-light .sidebar-socials-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
   body.theme-light .avatar { width: 150px; height: 150px; }
 
   body.theme-light .tab-content {
@@ -552,6 +614,8 @@ body.theme-light .card-formula p { color: #eef0f2; }
   body.theme-light .console-section:has(.contact-info) { align-self: stretch; }
   body.theme-light .status { align-self: center; }
   body.theme-light .about-cv-btn { margin-top: 20px; }
+  body.theme-light .sidebar-socials { margin-top: 20px; }
+  body.theme-light .sidebar-socials-list { display: flex; }
   body.theme-light .avatar { width: 168px; height: 168px; }
   body.theme-light .info-item { font-size: 16px; }
 }
@@ -559,8 +623,7 @@ body.theme-light .card-formula p { color: #eef0f2; }
 /* ---- Mobile drawer (shared markup, light copy for this view) ------ */
 @media (max-width: 900px) {
   body.theme-light .mobile-menu-overlay { background: rgba(40, 20, 20, 0.35); }
-  body.theme-light .drawer-section .console-key,
-  body.theme-light .drawer-section:has(.mobile-social-links) { display: none; }
+  body.theme-light .drawer-section .console-key { display: none; }
   body.theme-light .mobile-nav-link,
   body.theme-light .mobile-contact-info .info-item,
   body.theme-light .drawer-download {

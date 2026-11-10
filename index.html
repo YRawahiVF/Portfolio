@@ -29,10 +29,11 @@
     <link rel="stylesheet" href="css/style.css?v=2">
     <link rel="stylesheet" href="css/layout.css?v=2">
     <link rel="stylesheet" href="css/components.css?v=3">
-    <link rel="stylesheet" href="css/about.css?v=6">
+    <link rel="stylesheet" href="css/about.css?v=8">
     <link rel="stylesheet" href="css/resume.css?v=2">
     <link rel="stylesheet" href="css/honors.css?v=1">
-    <link rel="stylesheet" href="css/theme-dark.css?v=1">
+    <link rel="stylesheet" href="css/skills.css?v=1">
+    <link rel="stylesheet" href="css/theme-dark.css?v=3">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
@@ -96,6 +97,11 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></svg>
                         Download CV
                     </button>
+
+                    <div class="about-only sidebar-socials">
+                        <p class="sidebar-socials-title">Socials</p>
+                        <div class="sidebar-socials-list"><!-- profile.json --></div>
+                    </div>
                 </div>
             </div>
         </aside>
@@ -230,27 +236,27 @@
 
                 <!-- ===== INTERESTS ===== -->
                 <section id="interests" class="section tab-pane">
-                    <div class="section-head">
-                        <span class="section-index">04</span>
-                        <h3 class="section-title"><!-- interests.json --></h3>
-                        <span class="section-rule"></span>
+                    <div class="about-hero skills-hero">
+                        <h2 class="about-headline">Interests &amp; Skills</h2>
+                        <p class="about-intro">My personal interests and the skills I use to plan, build, and deliver digital products and projects.</p>
                     </div>
 
-                    <div class="interests-content">
-                        <div class="core-interests">
-                            <span class="console-key">// core interests</span>
-                            <div class="interests-grid core-interests-grid"></div>
+                    <div class="skills-page">
+                        <div class="skills-block">
+                            <h3 class="about-kicker">Interests</h3>
+                            <div class="interest-cards"><!-- interests.json --></div>
                         </div>
-                        <div class="fusion-passions">
-                            <span class="console-key">// where worlds collide</span>
-                            <h2></h2>
-                            <div class="interests-grid fusions-grid"></div>
+                        <div class="skills-block">
+                            <h3 class="about-kicker">Personal skills</h3>
+                            <div class="skill-panel" id="skills-personal"><!-- resume.json softSkills --></div>
                         </div>
-                        <div class="homelab-showcase">
-                            <span class="console-key">// the digital forge</span>
-                            <h2></h2>
-                            <div class="homelab-links"></div>
-                            <div class="homelab-content"></div>
+                        <div class="skills-block">
+                            <h3 class="about-kicker">Software &amp; tools</h3>
+                            <div class="tool-columns" id="skills-tools"><!-- resume.json technicalSkills --></div>
+                        </div>
+                        <div class="skills-block">
+                            <h3 class="about-kicker">Languages</h3>
+                            <div class="skill-panel" id="skills-languages"><!-- resume.json languages --></div>
                         </div>
                     </div>
                 </section>
@@ -309,8 +315,8 @@
         </div>
     </div>
 
-    <script src="js/data-loader.js?v=5"></script>
-    <script src="js/main.js?v=6"></script>
+    <script src="js/data-loader.js?v=8"></script>
+    <script src="js/main.js?v=7"></script>
     <script src="js/portfolio.js?v=2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="js/pdfGenerator.js?v=2"></script>

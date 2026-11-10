@@ -16,17 +16,17 @@
       "id": "portfolio",
       "title": "Portfolio",
       "active": false,
-      "hidden": false
-    },
-    {
-      "id": "interests",
-      "title": "Interests",
-      "active": false,
-      "hidden": false
+      "hidden": true
     },
     {
       "id": "honors",
       "title": "Honors",
+      "active": false,
+      "hidden": false
+    },
+    {
+      "id": "interests",
+      "title": "Interests & Skills",
       "active": false,
       "hidden": false
     },
@@ -37,4 +37,4 @@
       "hidden": true
     }
   ]
-} 
+}

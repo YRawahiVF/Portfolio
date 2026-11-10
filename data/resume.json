@@ -79,11 +79,15 @@
   "languages": [
     {
       "language": "Arabic",
-      "proficiency": "Native Proficiency"
+      "proficiency": "Native Proficiency",
+      "level": 5,
+      "icon": "message-circle"
     },
     {
       "language": "English",
-      "proficiency": "Very Good Proficiency"
+      "proficiency": "Very Good Proficiency",
+      "level": 4,
+      "icon": "message-circle"
     }
   ],
   "technicalSkills": [
@@ -93,12 +97,14 @@
         {
           "name": "Jira",
           "level": 4,
-          "icon": "devicon-jira-plain"
+          "icon": "devicon-jira-plain",
+          "logo": "assets/images/skills/jira.svg"
         },
         {
           "name": "Confluence",
           "level": 4,
-          "icon": "devicon-confluence-plain"
+          "icon": "devicon-confluence-plain",
+          "logo": "assets/images/skills/confluence.svg"
         }
       ]
     },
@@ -108,22 +114,26 @@
         {
           "name": "PowerShell",
           "level": 3,
-          "icon": "devicon-powershell-plain"
+          "icon": "devicon-powershell-plain",
+          "logo": "assets/images/skills/powershell.svg"
         },
         {
           "name": "MATLAB",
           "level": 3,
-          "icon": "devicon-matlab-plain"
+          "icon": "devicon-matlab-plain",
+          "logo": "assets/images/skills/matlab.svg"
         },
         {
           "name": "AutoCAD",
           "level": 3,
-          "icon": "fas fa-drafting-compass"
+          "icon": "fas fa-drafting-compass",
+          "logo": "assets/images/skills/autocad.svg"
         },
         {
           "name": "Zapier",
           "level": 3,
-          "icon": "fas fa-bolt"
+          "icon": "fas fa-bolt",
+          "logo": "assets/images/skills/zapier.svg"
         }
       ]
     },
@@ -133,12 +143,24 @@
         {
           "name": "Adobe Photoshop",
           "level": 3,
-          "icon": "fas fa-image"
+          "icon": "fas fa-image",
+          "logo": "assets/images/skills/photoshop.svg"
         },
         {
           "name": "Canva",
           "level": 4,
-          "icon": "fas fa-palette"
+          "icon": "fas fa-palette",
+          "logo": "assets/images/skills/canva.svg"
+        }
+      ]
+    },
+    {
+      "category": "AI",
+      "skills": [
+        {
+          "name": "Claude",
+          "level": null,
+          "logo": "assets/images/skills/claude.svg"
         }
       ]
     }
@@ -146,23 +168,28 @@
   "softSkills": [
     {
       "name": "Fast Learning",
-      "level": 5
+      "level": 5,
+      "icon": "zap"
     },
     {
       "name": "Time Management",
-      "level": 5
+      "level": 5,
+      "icon": "clock"
     },
     {
       "name": "Problem Solving",
-      "level": 5
+      "level": 5,
+      "icon": "puzzle"
     },
     {
       "name": "Multitasking",
-      "level": 5
+      "level": 5,
+      "icon": "layers"
     },
     {
       "name": "Teamwork",
-      "level": 4
+      "level": 4,
+      "icon": "users"
     }
   ]
 }

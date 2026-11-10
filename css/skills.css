@@ -1,0 +1,188 @@
+/* ============================================================
+   Interests & Skills page redesign (Phase 4)
+
+   Builds on the light theme in about.css (tokens, --u scaling,
+   kickers, hero type) and matches the Resume / Honors cards.
+   ============================================================ */
+
+/* ---- Header: same type as the other pages, no artwork ------------ */
+body.theme-light #interests .skills-hero { max-width: none; margin-top: calc(-36 * var(--u)); }
+body.theme-light #interests .skills-hero .about-headline { max-width: none; margin-top: 0; }
+body.theme-light #interests .skills-hero .about-intro { max-width: calc(900 * var(--u)); margin-top: calc(14 * var(--u)); }
+
+body.theme-light #interests .skills-page {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: calc(46 * var(--u));
+  margin-top: calc(56 * var(--u));
+}
+/* Thin rule between sections, as in the reference */
+body.theme-light #interests .skills-block + .skills-block {
+  padding-top: calc(42 * var(--u));
+  border-top: 1px solid var(--line);
+}
+body.theme-light #interests .skills-block > .about-kicker {
+  margin-bottom: calc(26 * var(--u));
+  font-size: calc(18 * var(--u));
+}
+body.theme-light #interests .skills-block > .about-kicker::before { width: calc(36 * var(--u)); }
+
+/* ---- Interests: three centred cards ------------------------------ */
+body.theme-light #interests .interest-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: calc(18 * var(--u));
+}
+body.theme-light #interests .interest-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: calc(26 * var(--u)) calc(26 * var(--u)) calc(30 * var(--u));
+  border: 1px solid var(--line);
+  border-radius: calc(16 * var(--u));
+  background: #fffcfb;
+  text-align: center;
+  box-shadow: 0 calc(2 * var(--u)) calc(10 * var(--u)) rgba(91, 40, 38, 0.04);
+  transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
+}
+body.theme-light #interests .interest-tile:hover {
+  border-color: var(--accent-line);
+  box-shadow: 0 calc(10 * var(--u)) calc(26 * var(--u)) rgba(91, 40, 38, 0.09);
+  transform: translateY(-1px);
+}
+body.theme-light #interests .interest-tile-icon {
+  display: grid;
+  place-items: center;
+  width: calc(84 * var(--u));
+  height: calc(84 * var(--u));
+  border-radius: calc(14 * var(--u));
+  background: #fbe3e3;
+}
+body.theme-light #interests .interest-tile-icon i { font-size: calc(36 * var(--u)); color: var(--accent); }
+body.theme-light #interests .interest-tile h4 {
+  margin-top: calc(18 * var(--u));
+  font-family: var(--font-body);
+  font-size: calc(26 * var(--u));
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+  color: var(--text);
+}
+body.theme-light #interests .interest-tile p {
+  max-width: calc(330 * var(--u));
+  margin-top: calc(10 * var(--u));
+  font-size: calc(17.5 * var(--u));
+  line-height: calc(26 * var(--u));
+  letter-spacing: -0.012em;
+  color: var(--text-dim);
+}
+
+/* ---- Skill panels: rows with a level bar on the right ------------ */
+body.theme-light #interests .skill-panel {
+  padding: calc(8 * var(--u)) calc(26 * var(--u));
+  border: 1px solid var(--line);
+  border-radius: calc(16 * var(--u));
+  background: #fffcfb;
+  box-shadow: 0 calc(2 * var(--u)) calc(10 * var(--u)) rgba(91, 40, 38, 0.04);
+}
+body.theme-light #interests .skill-line {
+  display: flex;
+  align-items: center;
+  gap: calc(20 * var(--u));
+  min-height: calc(66 * var(--u));
+}
+body.theme-light #interests .skill-line + .skill-line { border-top: 1px solid var(--line); }
+body.theme-light #interests .skill-line-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: calc(46 * var(--u));
+  height: calc(46 * var(--u));
+  border-radius: calc(11 * var(--u));
+  background: #fbe3e3;
+  color: var(--accent);
+}
+body.theme-light #interests .skill-line-icon svg { width: calc(24 * var(--u)); height: calc(24 * var(--u)); }
+body.theme-light #interests .skill-line-name {
+  flex: 1;
+  min-width: 0;
+  font-size: calc(19 * var(--u));
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+
+body.theme-light #interests .level-bar {
+  flex: none;
+  display: flex;
+  gap: calc(6 * var(--u));
+}
+body.theme-light #interests .level-bar .seg {
+  width: calc(58 * var(--u));
+  height: calc(12 * var(--u));
+  border-radius: 999px;
+  background: #e6dddc;
+}
+body.theme-light #interests .level-bar .seg.on { background: var(--accent); }
+
+/* ---- Software & tools: two panels side by side ------------------- */
+body.theme-light #interests .tool-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: calc(18 * var(--u));
+  align-items: stretch;
+}
+body.theme-light #interests .tool-panel { padding: calc(6 * var(--u)) calc(22 * var(--u)); }
+body.theme-light #interests .tool-panel .skill-line { min-height: calc(62 * var(--u)); gap: calc(18 * var(--u)); }
+body.theme-light #interests .skill-line-logo {
+  flex: none;
+  width: calc(34 * var(--u));
+  height: calc(34 * var(--u));
+  object-fit: contain;
+}
+body.theme-light #interests .tool-panel .skill-line-name { font-size: calc(18 * var(--u)); font-weight: 600; }
+body.theme-light #interests .tool-panel .level-bar { gap: calc(5 * var(--u)); }
+body.theme-light #interests .tool-panel .level-bar .seg { width: calc(34 * var(--u)); height: calc(10 * var(--u)); }
+
+/* ---- Tablet ------------------------------------------------------ */
+@media (max-width: 1099px) {
+  body.theme-light #interests .skills-hero { margin-top: -16px; }
+  body.theme-light #interests .skills-hero .about-headline { font-size: clamp(34px, 5.4vw, 48px); }
+  body.theme-light #interests .skills-page { gap: 40px; margin-top: 44px; }
+  body.theme-light #interests .skills-block + .skills-block { padding-top: 36px; }
+  body.theme-light #interests .interest-cards { gap: 14px; }
+  body.theme-light #interests .interest-tile { padding: 22px 18px 24px; }
+  body.theme-light #interests .interest-tile-icon { width: 68px; height: 68px; }
+  body.theme-light #interests .interest-tile-icon i { font-size: 30px; }
+  body.theme-light #interests .interest-tile h4 { font-size: 21px; }
+  body.theme-light #interests .interest-tile p { font-size: 15.5px; line-height: 23px; }
+  body.theme-light #interests .level-bar .seg { width: 40px; }
+  body.theme-light #interests .tool-panel { padding: 4px 16px; }
+  body.theme-light #interests .tool-panel .level-bar .seg { width: 22px; }
+}
+
+/* ---- Phone ------------------------------------------------------- */
+@media (max-width: 720px) {
+  body.theme-light #interests .skills-hero { margin-top: 0; }
+  body.theme-light #interests .skills-hero .about-headline { font-size: clamp(30px, 8.6vw, 38px); }
+  body.theme-light #interests .skills-hero .about-intro { font-size: 17px; line-height: 25px; }
+  body.theme-light #interests .skills-page { gap: 32px; margin-top: 32px; }
+  body.theme-light #interests .skills-block + .skills-block { padding-top: 30px; }
+  body.theme-light #interests .skills-block > .about-kicker { margin-bottom: 18px; font-size: 15px; }
+  body.theme-light #interests .interest-cards,
+  body.theme-light #interests .tool-columns { grid-template-columns: minmax(0, 1fr); }
+  body.theme-light #interests .tool-columns { gap: 12px; }
+  body.theme-light #interests .skill-panel { padding: 4px 14px; }
+  body.theme-light #interests .skill-line { gap: 12px; min-height: 56px; }
+  body.theme-light #interests .skill-line-icon { width: 38px; height: 38px; border-radius: 10px; }
+  body.theme-light #interests .skill-line-icon svg { width: 20px; height: 20px; }
+  body.theme-light #interests .skill-line-name,
+  body.theme-light #interests .tool-panel .skill-line-name { font-size: 16px; }
+  body.theme-light #interests .skill-line-logo { width: 28px; height: 28px; }
+  body.theme-light #interests .level-bar,
+  body.theme-light #interests .tool-panel .level-bar { gap: 4px; }
+  body.theme-light #interests .level-bar .seg,
+  body.theme-light #interests .tool-panel .level-bar .seg { width: 20px; height: 9px; }
+}

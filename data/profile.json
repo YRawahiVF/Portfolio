@@ -17,7 +17,20 @@
       "text": "Muscat, Oman"
     }
   ],
-  "socialLinks": [],
+  "socialLinks": [
+    {
+      "platform": "LinkedIn",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/yousuf-al-rawahy-094647158/",
+      "icon": "fab fa-linkedin-in"
+    },
+    {
+      "platform": "Instagram",
+      "label": "Formula Room",
+      "url": "https://www.instagram.com/formula.room",
+      "icon": "fab fa-instagram"
+    }
+  ],
   "footer": {
     "copyright": "© 2026 Yousuf Al Rawahi's Portfolio. All rights reserved."
   }

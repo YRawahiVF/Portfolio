@@ -193,7 +193,7 @@ function setupTabNavigation() {
   }
 
   // The redesigned light theme applies to the tabs redesigned so far
-  const LIGHT_TABS = ['about', 'resume', 'honors'];
+  const LIGHT_TABS = ['about', 'resume', 'honors', 'interests'];
   document.body.classList.toggle('theme-light', LIGHT_TABS.includes(activeTabId));
 
   // Function to handle tab switching

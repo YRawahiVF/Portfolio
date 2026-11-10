@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadAboutSection(aboutData);
     loadResumeSection(resumeData);
     loadInterestsSection(interestsData);
+    loadSkillsPage(resumeData);
     loadHonorsSection(honorsData);
     loadContactSection(contactData);
     
@@ -63,9 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
       data.contactInfo.forEach(item => {
         const infoItem = document.createElement('div');
         infoItem.className = 'info-item';
-        // Any extra phone number stays on the other tabs; the About sidebar shows the first
+        // Extra numbers: "a / b" on the original-design pages, one per line in the redesigned sidebar
         const [primary, ...extra] = item.text.split(' / ');
-        const extraHTML = extra.length ? `<span class="contact-extra"> / ${extra.join(' / ')}</span>` : '';
+        const extraHTML = extra.map(x => `<span class="contact-extra"><span class="contact-sep"> / </span>${x}</span>`).join('');
         infoItem.innerHTML = `
           <i class="${item.icon}"></i>
           <span>${primary}${extraHTML}</span>
@@ -112,8 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
         link.href = item.url;
         link.className = 'social-icon';
         link.target = '_blank';
+        link.rel = 'noopener noreferrer';
         link.innerHTML = `<i class="${item.icon}"></i>`;
-        link.setAttribute('aria-label', item.label);
+        link.setAttribute('aria-label', item.platform && item.platform !== item.label ? `${item.label} on ${item.platform}` : item.label);
         socialLinksContainer.appendChild(link);
       });
       const downloadLink = document.createElement('a');
@@ -122,6 +124,29 @@ document.addEventListener('DOMContentLoaded', () => {
       downloadLink.innerHTML = '<i class="fas fa-download"></i>';
       downloadLink.setAttribute('aria-label', 'Download CV');
       socialLinksContainer.appendChild(downloadLink);
+    }
+
+    // Socials section with labels (redesigned sidebar)
+    const socialsList = document.querySelector('.sidebar-socials-list');
+    if (socialsList) {
+      socialsList.innerHTML = '';
+      data.socialLinks.forEach(item => {
+        const link = document.createElement('a');
+        link.className = 'social-row';
+        link.href = item.url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.innerHTML = `
+          <i class="${item.icon}" aria-hidden="true"></i>
+          <span class="social-text">
+            <span class="social-label">${item.label}</span>
+            ${item.handle ? `<span class="social-handle">${item.handle}</span>` : ''}
+          </span>
+          <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>`;
+        link.setAttribute('aria-label', `${item.platform && item.platform !== item.label ? `${item.label} on ${item.platform}` : item.label} (opens in a new tab)`);
+        socialsList.appendChild(link);
+      });
+      socialsList.closest('.sidebar-socials').hidden = !data.socialLinks.length;
     }
 
     // Social links (Mobile drawer) — mirror of sidebar links, no download
@@ -136,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
         link.innerHTML = `<i class="${item.icon}"></i>`;
-        link.setAttribute('aria-label', item.label);
+        link.setAttribute('aria-label', item.platform && item.platform !== item.label ? `${item.label} on ${item.platform}` : item.label);
         mobileSocial.appendChild(link);
       });
     }
@@ -205,9 +230,58 @@ document.addEventListener('DOMContentLoaded', () => {
     'trophy': '<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>',
     'award': '<path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/>',
     'pen': '<path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/>',
+    'zap': '<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>',
+    'clock': '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+    'puzzle': '<path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/>',
+    'layers': '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>',
+    'users': '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    'message-circle': '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
     'calendar': '<rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>',
   };
   const svgIcon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ''}</svg>`;
+
+  // Five-segment level bar (no text labels); nothing is drawn when no rating is stored
+  function levelBar(level, name) {
+    const lvl = Number(level);
+    if (level === null || level === undefined || level === '' || !Number.isFinite(lvl)) return '';
+    const n = Math.max(0, Math.min(5, Math.round(lvl)));
+    let segs = '';
+    for (let i = 1; i <= 5; i++) segs += `<span class="seg${i <= n ? ' on' : ''}"></span>`;
+    return `<span class="level-bar" role="img" aria-label="${name}: ${n} out of 5">${segs}</span>`;
+  }
+
+  // Interests & Skills page: personal skills, software and tools, languages (from resume.json)
+  function loadSkillsPage(data) {
+    const page = document.getElementById('interests');
+    if (!page || !data) return;
+    const row = (lead, name, level, cls = '') => `
+      <div class="skill-line${cls}">
+        ${lead}
+        <span class="skill-line-name">${name}</span>
+        ${levelBar(level, name)}
+      </div>`;
+    const iconLead = name => `<span class="skill-line-icon">${svgIcon(name)}</span>`;
+
+    const personal = page.querySelector('#skills-personal');
+    if (personal && Array.isArray(data.softSkills)) {
+      personal.innerHTML = data.softSkills.map(s => row(iconLead(s.icon), s.name, s.level)).join('');
+    }
+
+    const tools = page.querySelector('#skills-tools');
+    if (tools && Array.isArray(data.technicalSkills)) {
+      const all = data.technicalSkills.flatMap(g => (g && Array.isArray(g.skills)) ? g.skills : []);
+      const half = Math.ceil(all.length / 2);
+      tools.innerHTML = [all.slice(0, half), all.slice(half)].filter(c => c.length).map(col => `
+        <div class="skill-panel tool-panel">${col.map(t => row(
+          t.logo ? `<img class="skill-line-logo" src="${t.logo}" alt="" aria-hidden="true">` : iconLead('briefcase'),
+          t.name, t.level, levelBar(t.level, t.name) ? '' : ' is-unrated')).join('')}</div>`).join('');
+    }
+
+    const langs = page.querySelector('#skills-languages');
+    if (langs && Array.isArray(data.languages)) {
+      langs.innerHTML = data.languages.map(l => row(iconLead(l.icon || 'message-circle'), l.language, l.level)).join('');
+    }
+  }
 
   // Load resume section
   function loadResumeSection(data) {
@@ -410,6 +484,21 @@ document.addEventListener('DOMContentLoaded', () => {
         
         return cardElement; 
     };
+
+    // Redesigned Interests cards: icon above title, centred
+    const interestCards = interestsSection.querySelector('.interest-cards');
+    if (interestCards && Array.isArray(data.coreInterests)) {
+      interestCards.innerHTML = '';
+      data.coreInterests.forEach(item => {
+        const card = document.createElement('article');
+        card.className = 'interest-tile';
+        card.innerHTML = `
+          <div class="interest-tile-icon"><i class="${item.icon}" aria-hidden="true"></i></div>
+          <h4>${item.title}</h4>
+          <p>${item.description}</p>`;
+        interestCards.appendChild(card);
+      });
+    }
 
     // Load Core Interests
     const coreGrid = interestsSection.querySelector('.core-interests-grid');

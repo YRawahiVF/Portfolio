@@ -83,6 +83,7 @@ body.theme-light.theme-dark .navbar { background: rgba(18, 20, 24, 0.92); }
 body.theme-light.theme-dark .status { background: rgba(51, 194, 90, 0.14); }
 body.theme-light.theme-dark .about-cv-btn { background: var(--surface); }
 body.theme-light.theme-dark .about-cv-btn:hover { background: var(--accent-soft); }
+body.theme-light.theme-dark .social-row:hover { background: var(--accent-soft); }
 
 /* Hero */
 body.theme-light.theme-dark .about-headline { color: var(--text); }
@@ -109,6 +110,17 @@ body.theme-light.theme-dark :is(#resume, #honors) .resume-card h4 { color: var(-
 body.theme-light.theme-dark :is(#resume, #honors) .resume-date,
 body.theme-light.theme-dark :is(#resume, #honors) .resume-mark.is-education,
 body.theme-light.theme-dark #honors .resume-mark.is-icon { background: var(--accent-soft); }
+
+/* Interests & Skills */
+body.theme-light.theme-dark #interests :is(.interest-tile, .skill-panel) {
+  background: var(--surface);
+  box-shadow: 0 calc(2 * var(--u)) calc(10 * var(--u)) rgba(0, 0, 0, 0.2);
+}
+body.theme-light.theme-dark #interests :is(.interest-tile-icon, .skill-line-icon) { background: var(--accent-soft); }
+body.theme-light.theme-dark #interests .level-bar .seg { background: var(--line-strong); }
+body.theme-light.theme-dark #interests .level-bar .seg.on { background: var(--accent); }
+body.theme-light.theme-dark #interests .skill-line-logo[src$="claude.svg"],
+body.theme-light.theme-dark #interests .skill-line-logo { filter: none; }
 
 /* Mobile drawer */
 @media (max-width: 900px) {
