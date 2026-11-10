@@ -1,0 +1,116 @@
+/* ============================================================
+   Theme switch + dark palette for the redesigned pages
+
+   The switch sits in the header of the redesigned (theme-light)
+   views. Choosing dark adds body.theme-dark, which swaps the
+   light tokens from about.css and the few hard-coded colours in
+   about.css / resume.css / honors.css. Loaded after them so these
+   rules win at equal specificity.
+   ============================================================ */
+
+/* ---- Switch --------------------------------------------------------- */
+body.theme-light .theme-switch {
+  --sw-w: calc(50 * var(--u));
+  --sw-h: calc(28 * var(--u));
+  --sw-pad: calc(3 * var(--u));
+  --knob: calc(var(--sw-h) - 2 * var(--sw-pad) - 2px);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  width: var(--sw-w);
+  height: var(--sw-h);
+  padding: var(--sw-pad);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface-2);
+  cursor: pointer;
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+body.theme-light .theme-switch:hover { border-color: var(--accent-line); }
+body.theme-light .theme-switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+body.theme-light .theme-switch-knob {
+  display: grid;
+  place-items: center;
+  width: var(--knob);
+  height: var(--knob);
+  border-radius: 50%;
+  color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  transition: transform var(--t-base);
+}
+body.theme-light .theme-switch-knob svg { grid-area: 1 / 1; width: 62%; height: 62%; }
+body.theme-light .theme-switch .icon-moon { display: none; }
+
+body.theme-light.theme-dark .theme-switch-knob {
+  transform: translateX(calc(var(--sw-w) - var(--knob) - 2 * var(--sw-pad) - 2px));
+}
+body.theme-light.theme-dark .theme-switch .icon-sun { display: none; }
+body.theme-light.theme-dark .theme-switch .icon-moon { display: block; }
+
+@media (max-width: 1099px) {
+  body.theme-light .theme-switch { --sw-w: 48px; --sw-h: 28px; --sw-pad: 3px; }
+}
+
+/* ---- Dark palette ---------------------------------------------------- */
+body.theme-light.theme-dark {
+  color-scheme: dark;
+
+  --ground: #121418;
+  --ground-2: #1a1d22;
+  --surface: #1b1e24;
+  --surface-2: #252930;
+  --line: #2a2e36;
+  --line-strong: #383d46;
+  --text: #f1f2f4;
+  --text-dim: #c3c7ce;
+  --text-faint: #8a9099;
+  --accent: #ff4048;
+  --accent-press: #e0141c;
+  --accent-soft: #3a1c1f;
+  --accent-line: #6a2a2e;
+  --ok: #33c25a;
+  --shadow: 0 calc(10 * var(--u)) calc(30 * var(--u)) rgba(0, 0, 0, 0.35);
+}
+
+/* Header */
+body.theme-light.theme-dark .navbar { background: rgba(18, 20, 24, 0.92); }
+
+/* Sidebar */
+body.theme-light.theme-dark .status { background: rgba(51, 194, 90, 0.14); }
+body.theme-light.theme-dark .about-cv-btn { background: var(--surface); }
+body.theme-light.theme-dark .about-cv-btn:hover { background: var(--accent-soft); }
+
+/* Hero */
+body.theme-light.theme-dark .about-headline { color: var(--text); }
+body.theme-light.theme-dark .about-art { opacity: 0.55; }
+
+/* About cards */
+body.theme-light.theme-dark .about-card:hover { box-shadow: 0 calc(14 * var(--u)) calc(32 * var(--u)) rgba(0, 0, 0, 0.45); }
+body.theme-light.theme-dark .card-vodafone { background: var(--surface); }
+body.theme-light.theme-dark .card-vodafone h3 { color: var(--text); }
+body.theme-light.theme-dark .card-vodafone .about-card-art { opacity: 0.8; }
+body.theme-light.theme-dark .card-formula { border-color: var(--line); background: #0d0f12; }
+
+/* Resume / Honors */
+body.theme-light.theme-dark :is(#resume, #honors) .timeline-item::before { background: var(--line-strong); }
+body.theme-light.theme-dark :is(#resume, #honors) .resume-card {
+  background: var(--surface);
+  box-shadow: 0 calc(2 * var(--u)) calc(10 * var(--u)) rgba(0, 0, 0, 0.2);
+}
+body.theme-light.theme-dark :is(#resume, #honors) .resume-card:hover {
+  box-shadow: 0 calc(10 * var(--u)) calc(26 * var(--u)) rgba(0, 0, 0, 0.4);
+}
+body.theme-light.theme-dark :is(#resume, #honors) .resume-mark { background: var(--surface-2); }
+body.theme-light.theme-dark :is(#resume, #honors) .resume-card h4 { color: var(--text); }
+body.theme-light.theme-dark :is(#resume, #honors) .resume-date,
+body.theme-light.theme-dark :is(#resume, #honors) .resume-mark.is-education,
+body.theme-light.theme-dark #honors .resume-mark.is-icon { background: var(--accent-soft); }
+
+/* Mobile drawer */
+@media (max-width: 900px) {
+  body.theme-light.theme-dark .mobile-menu-overlay { background: rgba(0, 0, 0, 0.55); }
+}

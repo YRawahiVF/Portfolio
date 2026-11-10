@@ -225,15 +225,20 @@ function setupTabNavigation() {
     });
   });
 
-  // "Get in Touch" opens the existing Contact tab
-  document.querySelectorAll('.js-get-in-touch').forEach(button => {
-    button.addEventListener('click', () => {
-      handleTabClick('contact');
-      if (mobileNavContainer) {
-        mobileNavContainer.querySelectorAll('.mobile-nav-link').forEach(link => link.classList.remove('active'));
-      }
+  // Light / dark switch for the redesigned pages (initial class set inline in <body>)
+  const themeSwitches = document.querySelectorAll('.js-theme-switch');
+  const syncThemeSwitches = () => {
+    const isDark = document.body.classList.contains('theme-dark');
+    themeSwitches.forEach(sw => sw.setAttribute('aria-checked', String(isDark)));
+  };
+  themeSwitches.forEach(sw => {
+    sw.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('theme-dark');
+      try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
+      syncThemeSwitches();
     });
   });
+  syncThemeSwitches();
 
   // Populate mobile nav and add listeners
   if (mobileNavContainer && mainTabButtons.length > 0) {
